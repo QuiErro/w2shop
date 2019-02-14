@@ -1,11 +1,417 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>403 Forbidden</title>
+    <meta charset="utf-8"/>
+    <title>西二商城</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/new_file.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/new_file.css"/>
 </head>
 <body>
-
-<p>Directory access is forbidden.</p>
-
+<div id="header">
+    <div class="header_nav">
+        <p>嗨~欢迎来到西二商城</p>
+        <ul>
+            <li>
+                <a href="<?php echo site_url('login');?>" target="_self">您好,请登录</a>
+                <a href="<?php echo site_url('register');?>" target="_self">免费注册</a>
+            </li>
+            <li><a>我的订单</a></li>
+            <li><a>个人中心</a></li>
+            <li><a>联系客服</a></li>
+            <li><a>网站导航</a></li>
+        </ul>
+    </div>
+    <div class="header_container">
+        <div class="header_img"><img src="<?php echo base_url('public/');?>img/logo-round.png"/></div>
+        <div class="header_search">
+            <form action="<?php echo site_url('shopping/search');?>" method="get">
+                <input type="text" name="keyword" placeholder="搜索  商品/品牌/店铺"/>
+                <input type="submit" value="搜索">
+            </form>
+            <p>
+                <a>自营日满减</a>
+                <a>西二女装</a>
+                <a>笔记本电脑</a>
+                <a>电子书</a>
+                <a>限时秒杀</a>
+            </p>
+        </div>
+        <div class="shopping_bag">
+            <img src="<?php echo base_url('public/');?>img/shopping.png"/>
+            <a href="<?php echo site_url('shopping');?>" target="_blank">我的购物车</a>
+        </div>
+    </div>
+</div>
+<div class="nav_show">
+    <div>
+        <input type="text" placeholder="西二女装"/>
+        <button><img src="<?php echo base_url('public/');?>img/search.png"/></button>
+    </div>
+</div>
+<div id="container">
+    <div class="con_box">
+        <img src="<?php echo base_url('public/');?>img/con_box.png"/>
+        <ul>
+            <li><img src="<?php echo base_url('public/');?>img/box1.png"/><a>图书音像</a>
+                <div class="box_con">
+                    <div class="hot_point">
+                        <div class="hot_line">畅销小说 ></div>
+                        <div class="hot_word">
+                            <a>外国文学</a><a>科幻小说</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">文学文艺 ></div>
+                        <div class="hot_word">
+                            <a>散文随笔</a><a>传记</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">大牌乐器 ></div>
+                        <div class="hot_word">
+                            <a>民谣吉他</a><a>尤克里里</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><img src="<?php echo base_url('public/');?>img/box2.png"/><a>零食</a>/<a>进口食品</a>
+                <div class="box_con">
+                    <div class="hot_point">
+                        <div class="hot_line">速溶饮品 ></div>
+                        <div class="hot_word">
+                            <a>咖啡</a><a>奶茶</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">零食 ></div>
+                        <div class="hot_word">
+                            <a>巧克力</a><a>饼干</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">茶叶 ></div>
+                        <div class="hot_word">
+                            <a>西湖龙井</a><a>铁观音</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><img src="<?php echo base_url('public/');?>img/box3.png"/><a>手机</a>/<a>数码</a>/<a>电脑办公</a>
+                <div class="box_con">
+                    <div class="hot_point">
+                        <div class="hot_line">特色手机></div>
+                        <div class="hot_word">
+                            <a>双卡双待</a><a>千元指纹</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">电脑整机></div>
+                        <div class="hot_word">
+                            <a>平板电脑</a><a>游戏本</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">摄影摄像 ></div>
+                        <div class="hot_word">
+                            <a>单反</a><a>拍立得</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><img src="<?php echo base_url('public/');?>img/box4.png"/><a>大家电</a>/<a>生活电器</a>
+                <div class="box_con">
+                    <div class="hot_point">
+                        <div class="hot_line">平板电视 ></div>
+                        <div class="hot_word">
+                            <a>国产</a><a>外资品牌</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">空调 ></div>
+                        <div class="hot_word">
+                            <a>热门之选</a><a>传记</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">冰箱 ></div>
+                        <div class="hot_word">
+                            <a>热门之选</a><a>智能</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><img src="<?php echo base_url('public/');?>img/box5.png"/><a>运动鞋</a>/<a>箱包</a>
+                <div class="box_con">
+                    <div class="hot_point">
+                        <div class="hot_line">潮流名牌鞋></div>
+                        <div class="hot_word">
+                            <a>休闲鞋</a><a>板鞋</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">精品名牌包></div>
+                        <div class="hot_word">
+                            <a>手提包</a><a>斜挎包</a>
+                        </div>
+                    </div>
+                    <div class="hot_point">
+                        <div class="hot_line">功能箱包 ></div>
+                        <div class="hot_word">
+                            <a>流行箱</a><a>双肩包</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="con_show">
+        <ul class="con_nav">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="con_img">
+            <li class="show"><img src="<?php echo base_url('public/');?>img/con_img1.jpg"/></li>
+            <li><img src="<?php echo base_url('public/');?>img/con_img2.jpg"/></li>
+            <li><img src="<?php echo base_url('public/');?>img/con_img3.jpg"/></li>
+            <li><img src="<?php echo base_url('public/');?>img/con_img4.jpg"/></li>
+        </ul>
+    </div>
+    <div class="con_log">
+        <div>
+            <img src="<?php echo base_url('public/');?>img/no_login.jpg"/>
+        </div>
+        <p>Hi~ 欢迎来到西二商城</p>
+        <p><a href="login.html" target="_self">登录</a><a href="login.html" target="_blank">注册</a></p>
+        <button class="welfare">新人福利</button>
+        <button class="vip">加入会员</button>
+    </div>
+    <div class="product">
+        <div class="pro_line">
+            <h3>图书音像</h3>
+            <div><a href="about:blank" target="_blank">MORE</a></div>
+        </div>
+        <div class="pro_show">
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro11.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥26.80</em></p>
+                    <p>苏东坡传</p>
+                    <p>西二商城自营图书馆</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro12.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥55.80</em></p>
+                    <p>三体</p>
+                    <p>西二商城自营图书馆</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro13.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥418.00</em></p>
+                    <p>尤克里里</p>
+                    <p>西二商城自营乐器店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="pro_line">
+            <h3>特色食品</h3>
+            <div><a href="about:blank" target="_blank">MORE</a></div>
+        </div>
+        <div class="pro_show">
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro21.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥69.00</em></p>
+                    <p>香飘飘奶茶 美味升级20杯 杯装奶茶 </p>
+                    <p>西二商城自营食品店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro22.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥39.90</em></p>
+                    <p>雀巢咖啡1+2特浓30条 速溶咖啡</p>
+                    <p>西二商城自营食品店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro23.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥78.00</em></p>
+                    <p>禾安堂共500g龙井茶绿茶</p>
+                    <p>西二商城自营食品店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="pro_line">
+            <h3>电子产品</h3>
+            <div><a href="about:blank" target="_blank">MORE</a></div>
+        </div>
+        <div class="pro_show">
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro31.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥2168.00</em></p>
+                    <p>Apple/苹果 Ipad</p>
+                    <p>西二商城自营数码旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro32.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥2799.00</em></p>
+                    <p>OPPO R17全面屏手机</p>
+                    <p>西二商城自营数码旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro33.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥3599.00</em></p>
+                    <p>Canon/佳能 EOS 200D 单反相机</p>
+                    <p>西二商城自营数码旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="pro_line">
+            <h3>大型家电</h3>
+            <div><a href="about:blank" target="_blank">MORE</a></div>
+        </div>
+        <div class="pro_show">
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro41.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥2199.00</em></p>
+                    <p>Xiaomi 小米电视4A 55英寸 4k高清智能网络电视</p>
+                    <p>西二商城自营家电旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro42.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥2299.00</em></p>
+                    <p>Midea/美的1.5匹智能挂式家用空调</p>
+                    <p>西二商城自营家电旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro43.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥3499.00</em></p>
+                    <p>Haier/海尔 智能变频家用对开门冰箱</p>
+                    <p>西二商城自营家电旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="pro_line">
+            <h3>潮流服饰</h3>
+            <div><a href="about:blank" target="_blank">MORE</a></div>
+        </div>
+        <div class="pro_show">
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro51.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥169.00</em></p>
+                    <p>双肩包简约休闲背包</p>
+                    <p>西二商城自营服饰旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro52.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥368.00</em></p>
+                    <p>万向轮拉杆箱20寸旅行箱</p>
+                    <p>西二商城自营服饰旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="<?php echo base_url('public/');?>img/pro53.jpg" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥78.00</em></p>
+                    <p>冬季加绒高帮帆布鞋</p>
+                    <p>西二商城自营服饰旗舰店</p>
+                </div>
+                <div class="add_btn">
+                    <a>加入购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="end_show"></div>
+<div id="footer">
+    <img src="img/footer.png"/>
+    <div class="footer_text"></div>
+</div>
+<div id="meg">
+    <div class="meg_nav">
+        <div class="meg_shoppingbag">
+            <img src="<?php echo base_url('public/');?>img/meg_showcar.png"/>
+            <p>购物车</p>
+            <div><span>0</span></div>
+        </div>
+        <a href="#" class="meg_top">
+            <img src="<?php echo base_url('public/');?>img/meg_top.png"/>
+        </a>
+    </div>
+    <div class="meg_show"></div>
+</div>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商城—欢迎登录</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/file_login.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/file_login.css"/>
+</head>
+<body>
+<div id="log_header">
+    <div id="log_title">
+        <div><img src="<?php echo base_url('public/');?>img/logo-round.png"/></div>
+        <h1>商城后台</h1>
+        <span>欢迎登录</span>
+    </div>
+</div>
+<div id="content">
+    <form action="<?php echo site_url('admin/login/login_in')?>" id="log" title="欢迎来到后台登录界面" method="post">
+        <div class="log_title">管理员登录</div>
+        <p>
+            <label for="log_name" class="label_name" title="用户名"></label>
+            <input type="text" name="admin_name" class="text" id="log_name" placeholder="用户名" title="请输入用户名" required/>
+        </p>
+        <p>
+            <label for="log_pass" class="label_pass" title="密码"></label>
+            <input type="password" name="admin_pass" class="text" id="log_pass" placeholder="密码" title="请输入密码"
+                   required/>
+        </p>
+        <p>
+            <label for="log_code" class="label_code" title="验证码"></label>
+            <input type="text" name="admin_captcha" class="text" id="log_code" placeholder="验证码" title="请输入验证码"
+                   required/>
+            <img src="<?php echo site_url('admin/login/code')?>"/>
+        </p>
+        <input type="submit" value="登录" class="form_submit log_submit"/>
+    </form>
+</div>
+<div id="footer">Copyright &copy; 2019-2020 西二XE.com 版权所有</div>
+</body>
+</html>

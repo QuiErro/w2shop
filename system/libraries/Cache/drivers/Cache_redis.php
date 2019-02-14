@@ -51,7 +51,7 @@ class CI_Cache_redis extends CI_Driver
 	/**
 	 * Default config
 	 *
-	 * @static
+	 * @public
 	 * @var	array
 	 */
 	protected static $_default_config = array(

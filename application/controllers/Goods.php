@@ -1,8 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-echo "\nDatabase error: ",
-$heading,
-"\n\n",
-$message,
-"\n\n";
+/*
+ *  商品详情页
+ */
+
+class Goods extends CI_Controller {
+
+}

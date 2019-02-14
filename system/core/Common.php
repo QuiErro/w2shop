@@ -130,7 +130,7 @@ if ( ! function_exists('load_class'))
 	 * Class registry
 	 *
 	 * This function acts as a singleton. If the requested class does not
-	 * exist it is instantiated and set to a static variable. If it has
+	 * exist it is instantiated and set to a public variable. If it has
 	 * previously been instantiated the variable is returned.
 	 *
 	 * @param	string	the class name being requested
@@ -296,7 +296,7 @@ if ( ! function_exists('config_item'))
 
 		if (empty($_config))
 		{
-			// references cannot be directly assigned to static variables, so we use an array
+			// references cannot be directly assigned to public variables, so we use an array
 			$_config[0] =& get_config();
 		}
 
@@ -462,7 +462,7 @@ if ( ! function_exists('log_message'))
 
 		if ($_log === NULL)
 		{
-			// references cannot be directly assigned to static variables, so we use an array
+			// references cannot be directly assigned to public variables, so we use an array
 			$_log[0] =& load_class('Log', 'core');
 		}
 
@@ -846,4 +846,51 @@ if ( ! function_exists('function_usable'))
 
 		return FALSE;
 	}
+}
+
+
+
+/*
+ * 自定义的打印函数
+ */
+function p($arr) {
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre>';
+    die();
+}
+
+/**
+ * 成功提示函数
+ * @param  [type] $url [跳转地址]
+ * @param  [type] $msg [提示信息]
+ * @return [type]      [description]
+ */
+function success($url, $msg){
+    header('Content-Type:text/html;charset=utf-8');
+    $url = site_url($url);
+    echo "<script type='text/javascript'>alert('$msg');window.location.href='$url'</script>";
+//    echo "<script type='text/javascript'>alert('$msg');</script>";
+//    redirect($url);
+    die();
+}
+
+/**
+ * 错误提示函数
+ * @param  [type] $msg [提示信息]
+ * @return [type]      [description]
+ */
+function error($msg){
+    header('Content-Type:text/html;charset=utf-8');
+    echo "<script type='text/javascript'>alert('$msg');window.history.back();</script>";
+    die();
+}
+
+
+/*
+ *  打印常量函数
+ */
+function print_const() {
+    $const = get_defined_constants(TRUE);
+    p($const);
 }
