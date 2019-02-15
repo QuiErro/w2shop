@@ -11,6 +11,7 @@ class User_model extends CI_Model {
     // 查询用户信息
     public function info($arr) {
         $arr = $this->db->get_where('users', $arr)->result_array();
+//        p($arr);
         return $arr;
     }
 }

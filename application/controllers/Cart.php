@@ -12,7 +12,19 @@ class Cart extends CI_Controller {
     }
 
     public function index() {
-        $this->load->helper('form');
-       $this->load->view('cart');
+        $data['content'] = $this->cart->contents();
+        $this->load->view('shoppingBag.html', $data);
+    }
+
+    public function add_cart() {
+        $arr = array();
+    }
+
+    public function del_cart() {
+
+    }
+
+    public function ch_cart() {
+
     }
 }

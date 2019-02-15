@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 
     public function index() {
         // 已登录则跳转
-        $islogin = isset($this->session->userdata['isadmin']) or 1;
+        $islogin = isset($_SESSION['isadmin']) or 1;
         if ($islogin === 0)
             success('Home', '您已登录，无需重复登录!');
         else
@@ -28,14 +28,15 @@ class Login extends CI_Controller {
      */
     public function login_in() {
 
-        $username = $this->input->post('username');
-        $passwd = $this->input->post('password');
+        $username = $this->input->post('log_name');
+        $passwd = $this->input->post('log_pass');
 
         if (!isset($_SESSION)) {
             session_start();
+            error('SESSION开启');
         }
 
-        $userData = $this->user->info($username);
+        $userData = $this->user->info(array('username' => $username));
 
         if (!$userData || $userData[0]['password'] !== md5($passwd)) error('用户名或者密码不正确');
 
@@ -48,7 +49,7 @@ class Login extends CI_Controller {
 
         $this->session->set_userdata($sessionData);
 
-        redirect(site_url('admin/main'));
+        redirect(site_url(''));
 //        success('admin/main/index', '登陆成功');
     }
 
@@ -58,6 +59,6 @@ class Login extends CI_Controller {
      */
     public function login_out() {
         $this->session->sess_destroy();
-        success('admin/login', '退出成功');
+        success('', '注销成功');
     }
 }

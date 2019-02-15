@@ -13,7 +13,8 @@ class Register extends CI_Controller {
         $data = array(
             'username' => $this->input->post('reg_name'),
             'password' => md5($this->input->post('reg_pass')),
-            'email' => $this->input->post('reg_email')
+            'email' => $this->input->post('reg_email'),
+            'reg_time' => date("Y-m-d H:i:s", time())
         );
 
         $name_isexist = $this->user->info(array('username' => $data['username']));
