@@ -22,6 +22,7 @@ class Goods_model extends CI_Model {
 
     // 商品信息
     public function info($gid) {
-        return $this->db->get_where($this->mytable, array('goods_id' => $gid))->result_array();
+        $res = $this->db->get_where($this->mytable, array('goods_id' => $gid))->result_array();
+        return $res[0];
     }
 }

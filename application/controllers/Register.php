@@ -25,7 +25,7 @@ class Register extends CI_Controller {
         } else if ($email_isexist) {
             error('注册失败，邮箱已被使用');
         } else if ($this->user->add_user($data)) {
-            success('Home', '注册成功，前往登录');
+            success('login', '注册成功，前往登录');
         }
     }
 }

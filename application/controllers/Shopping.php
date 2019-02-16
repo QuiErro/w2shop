@@ -16,17 +16,4 @@ class Shopping extends CI_Controller {
 //        p($keword);
     }
 
-    // 购物车
-    public function bag() {
-        $gid = $this->input->get('gid');
-
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-
-        $this->load->model('User_model', 'user');
-//        $this->user->
-        $_SESSION['shopingbag'][$gid] = '';
-    }
 }
-
