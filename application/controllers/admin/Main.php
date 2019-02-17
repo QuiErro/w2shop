@@ -9,7 +9,27 @@ class Main extends Admin_Controller {
 
     // 展示后台首页
     public function index() {
-        $this->load->view('admin/test.html');
+
+        //配置项设置
+        $perPage = 6;
+        $config['base_url'] = site_url('admin/main/index');
+        $config['total_rows'] = $this->db->count_all_results('goods');
+        $config['per_page'] = $perPage;
+        $config['uri_segment'] = 4;
+        $config['first_link'] = '首页';
+        $config['prev_link'] = '«';
+        $config['next_link'] = '»';
+        $config['last_link'] = '尾页';
+
+        $this->load->library('pagination', $config);
+
+        $data['links'] = $this->pagination->create_links();
+        $offset = $this->uri->segment(4);
+        $this->db->limit($perPage, $offset);
+
+        $data['goods'] = $this->goods->read();
+
+        $this->load->view('admin/test.html', $data);
     }
 
     // 增加新的商品

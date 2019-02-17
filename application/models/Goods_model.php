@@ -25,10 +25,15 @@ class Goods_model extends CI_Model {
         return $res;
     }
 
-    // 商品信息
+    // 由 gid 查询商品信息
     public function info($gid) {
         $res = $this->db->get_where($this->mytable, array('goods_id' => $gid))->result_array();
-        return $res[0];
+        return $res;
+    }
+
+    // 显示所有商品
+    public function read() {
+        return $this->db->get($this->mytable)->result_array();
     }
 
     // 根据商品名模糊搜索
