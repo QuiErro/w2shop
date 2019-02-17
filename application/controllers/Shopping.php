@@ -11,9 +11,9 @@ class Shopping extends CI_Controller {
     }
 
     public function search() {
-        $this->load->view('search.html');
+        $this->load->model('Goods_model', 'goods');
         $keword = $this->input->get('keyword');
-//        p($keword);
+        $data['result'] = $this->goods->find($keword);
+        $this->load->view('search.html', $data);
     }
-
 }

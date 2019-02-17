@@ -12,16 +12,22 @@ class Cart extends CI_Controller {
         $this->load->model('Goods_model', 'goods');
     }
 
+    // 附带删除
     public function index() {
+        // 若传来 rid 则直接删除
+        $rowid = $this->input->get('rid');
+        if (!empty($rowid))
+            $this->cart->remove($rowid);
         $data['contents'] = $this->cart->contents();
         $this->load->view('shoppingBag.html', $data);
     }
 
+    // 添加购物车
     public function add_cart() {
         $gid = $this->input->get('gid');
         $info = $this->goods->info($gid);
 
-        $data = array(
+        $data['result'] = array(
             'id' => $info['goods_id'],
             'qty' => 1,
             'price' => $info['shop_price'],
@@ -29,14 +35,12 @@ class Cart extends CI_Controller {
             'img' => $info['goods_thumb']
         );
 
-        $this->cart->insert($data);
-        redirect(site_url('cart'));
+        $this->cart->insert($data['result']);
+        // 中转界面
+        $this->load->view('cart_tmp.html', $data);
     }
 
-    public function del_cart() {
-
-    }
-
+    // 修改购物车
     public function ch_cart() {
 
     }

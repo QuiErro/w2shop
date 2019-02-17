@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商城-搜索</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/search.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/search.css"/>
+</head>
+<body>
+<div id="header">
+    <div class="header_nav">
+        <p>嗨~欢迎来到西二商城</p>
+        <ul>
+            <li>
+                <?php if (empty($_SESSION['username'])) : ?>
+                <a href="<?php echo site_url('login');?>" target="_self">您好,请登录</a>
+                <a href="<?php echo site_url('register');?>" target="_self">免费注册</a>
+                <?php else : ?>
+                <?php echo $_SESSION['username'];?>
+                <a href="<?php echo site_url('login/login_out');?>">注销</a>
+                <?php endif;?>
+            </li>
+            <li><a href="<?php echo site_url();?>">首页</a></li>
+            <li><a>我的订单</a></li>
+            <li><a>个人中心</a></li>
+            <li><a>联系客服</a></li>
+        </ul>
+    </div>
+    <div class="header_container">
+        <div class="header_img"><img src="<?php echo base_url('public/');?>img/logo-round.png"/></div>
+        <div class="header_search">
+            <form action="<?php echo site_url('shopping/search');?>" method="get">
+                <input type="text" name="keyword" placeholder="搜索  商品/品牌/店铺"/>
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+        <div class="shopping_bag">
+            <img src="<?php echo base_url('public/');?>img/shopping.png"/>
+            <a href="<?php echo site_url('shopping');?>" target="_blank">我的购物车</a>
+        </div>
+    </div>
+</div>
+<div class="nav_show">
+    <div>
+        <input type="text" placeholder="西二女装"/>
+        <button><img src="<?php echo base_url('public/');?>img/search.png"/></button>
+    </div>
+</div>
+<div id="container">
+    <div class="product">
+        <?php if (!empty($result)):?>
+        商品已成功加入购物车！
+        <div class="pro">
+            <img src="<?php echo base_url('public/uploads/') . $result['img'];?>" class="pro_img">
+            <p><em>¥<?php echo sprintf("%.2f",$result['price']);?></em></p>
+            <p><?php echo $result['name'];?></p>
+            <div class="add_btn">
+                <a href="<?php echo site_url('cart')?>">去购物车结算</a>
+                <br>
+                <a href="<?php echo site_url()?>">继续购物</a>
+            </div>
+        </div>
+        <?php else: ?>
+        暂无此商品
+        <?php endif;?>
+    </div>
+</div>
+</body>
+</html>

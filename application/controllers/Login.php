@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 
     public function index() {
         // 已登录则跳转
-        $islogin = isset($_SESSION['isadmin']) or 1;
+        $islogin = empty($_SESSION['isuser']) or 1;
         if ($islogin === 0)
             success('Home', '您已登录，无需重复登录!');
         else
@@ -43,8 +43,8 @@ class Login extends CI_Controller {
         $sessionData = array(
             'uid' => $userData[0]['id'],
             'username' => $username,
-            'isadmin' => $userData[0]['isadmin'],
-            'logintime' => time()
+            'logintime' => time(),
+            'isuser' => 1
         );
 
         $this->session->set_userdata($sessionData);
