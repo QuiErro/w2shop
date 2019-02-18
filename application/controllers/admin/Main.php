@@ -10,6 +10,12 @@ class Main extends Admin_Controller {
     // 展示后台首页
     public function index() {
 
+//        $search_id = $this->input->post('gid');
+//        if (!empty($search_id)) {
+//            $data['goods'] = $this->goods->info($search_id);
+//            p($data);
+//            $this->load->view('admin/test.html', $data);
+//        }
         //配置项设置
         $perPage = 6;
         $config['base_url'] = site_url('admin/main/index');
@@ -20,6 +26,7 @@ class Main extends Admin_Controller {
         $config['prev_link'] = '«';
         $config['next_link'] = '»';
         $config['last_link'] = '尾页';
+//        $config['attributes'] = array('class' => 'pag_a');
 
         $this->load->library('pagination', $config);
 
@@ -51,7 +58,8 @@ class Main extends Admin_Controller {
         $info = $this->upload->data();
 
         /*
-        // 生成缩略图 You must specify a source image in your preferences.
+        // TODO：生成缩略图
+        You must specify a source image in your preferences.
         $config_['source_img'] = $info['full_path'];
         $config_['create_thumb'] = TRUE;
         $config_['maintain_ratio'] = TRUE;
@@ -79,22 +87,45 @@ class Main extends Admin_Controller {
             'goods_img' => $info['file_name'],
             // 缩略图暂缓
             // 'goods_thumb' => $config_['new_image'],
-            'goods_thumb' => '',
+            'goods_thumb' => $info['file_name'],
             'goods_number' => $this->input->post('add_count'),
             'add_time' => date('Y-m-d H:i:s', time())
         );
         $status = $this->goods->add_good($good);
-        if ($status) success('', '添加成功');
+        if ($status) success('admin/main', '添加成功');
         else error('失败');
     }
 
     // 更新商品信息
+    // TODO: 接收不到表单数据？？
     public function update() {
-        $gid = $this->input->get('gid');
+        $gid = $this->input->post('adapt_id');
+        $good = array(
+            'goods_name' => $this->input->post('adapt_name'),
+            'goods_brief' => $this->input->post('adapt_brief'),
+            'goods_desc' => $this->input->post('adapt_desc'),
+            'cat_id' => $this->input->post('adapt_class'),
+            // 品牌暂缓
+            'brand_id' => '',
+            'market_price' => $this->input->post('adapt_price'),
+            /* 图片修改
+            'shop_price' => $this->input->post('adaptadd_price'),
+            'goods_img' => $info['file_name'],
+            'goods_thumb' => $info['file_name'],
+            */
+            'is_onsale' => ($this->input->post('adapt_slect') === 'put-on-sale'),
+            'goods_number' => $this->input->post('adapt_count'),
+        );
+        p($good);
+        if ($this->goods->change($gid, $good)) {
+            success('admin/main', '修改商品信息成功');
+        } else {
+            error('修改失败');
+        }
     }
 
     // 删除商品
     public function del() {
-
+        $gid = $this->input->post('gid');
     }
 }

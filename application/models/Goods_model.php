@@ -28,7 +28,7 @@ class Goods_model extends CI_Model {
     // 由 gid 查询商品信息
     public function info($gid) {
         $res = $this->db->get_where($this->mytable, array('goods_id' => $gid))->result_array();
-        return $res;
+        return $res[0];
     }
 
     // 显示所有商品
