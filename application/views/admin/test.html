@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>西二商城后台管理界面</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/file_manager.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/file_manager.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+</head>
+<body>
+<div id="header">
+    <p>您好，超级管理员&nbsp;<span class="name"><?php echo $_SESSION['aname'];?></span>，欢迎来到西二商城后台管理界面</p>
+    <p class="close"><img src="<?php echo base_url('public/');?>img/close.jpg"/><a
+            href="<?php echo site_url('admin/login/login_out');?>">退出系统</a></p>
+</div>
+<div id="container">
+    <div class="con_list">
+        <div class="list_line"><p>□&nbsp;菜单</p></div>
+        <ul class="list_operation">
+            <li class="oper"><img src="<?php echo base_url('public/');?>img/oper1.png"/>
+                <p><a href="<?php echo site_url('home');?>" target="_self">商城首页</a></p></li>
+            <li class="oper oper_current"><img src="<?php echo base_url('public/');?>img/oper1.png"/>
+                <p>商品管理</p></li>
+            <li class="oper"><img src="<?php echo base_url('public/');?>img/oper2.png"/>
+                <p>商品上架</p></li>
+            <li class="oper"><img src="<?php echo base_url('public/');?>img/oper4.png"/>
+                <p>销量统计</p></li>
+        </ul>
+    </div>
+    <div class="con_show">
+        <div><img src="<?php echo base_url('public/');?>img/common.png"/></div>
+        <div class="console_show">
+            <div class="oper_box box_current" id="box1">
+                <div class="btn_set">
+                    <button class="remove_btn">删除</button>
+                    <button class="reload_btn">刷新</button>
+                </div>
+                <div class="search">
+                    <input type="text" name="gid" placeholder="请输入商品的id号" class="search_text"/>
+                    <input type="submit" value="搜索" class="search_btn"/>
+                </div>
+                <table id="pro_tab" border="1" width="800">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>名称</th>
+                        <th>简单描述</th>
+                        <th>详情</th>
+                        <th>所属类别</th>
+                        <th>出售价格</th>
+                        <th>主图</th>
+                        <th>缩略图</th>
+                        <th>是否上架</th>
+                        <th>库存</th>
+                        <th>添加时间</th>
+                        <th>选择</th>
+                        <th>修改</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($goods as $good): ?>
+                    <tr>
+                        <td class="id"><?php echo $good['goods_id']?></td>
+                        <td class="name"><?php echo $good['goods_name']?></td>
+                        <td class="brief"><?php echo $good['goods_brief'] ?: '待补充' ?></td>
+                        <td class="desc"><?php echo $good['goods_desc'] ?: '待补充'?></td>
+                        <td class="category"><?php echo $good['cat_name']?></td>
+                        <td class="shop_price"><?php echo sprintf("%.2f",$good['shop_price']);?></td>
+                        <td class="goods_img"><img src="<?php echo base_url('public/uploads/') . $good['goods_img']?>"/>
+                        </td>
+                        <td class="goods_thumb"><img
+                                src="<?php echo base_url('public/uploads/') . $good['goods_thumb']?>"/></td>
+                        <td class="onsale"><?php echo $good['goods_id'] ? '上架' : '下架'?></td>
+                        <td class="onsale_count"><?php echo $good['goods_number']?></td>
+                        <td class="add_time"><?php echo $good['add_time']?></td>
+                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td>
+                            <button class="adapt_btn">修改</button>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+                <?php if (!empty($links)):?>
+                <div class="footer">
+                    <ul class="pagination">
+                        <?php echo $links ?>
+                        <!--<li><a class="pag_back">«</a></li>-->
+                        <!--<li><a class="pag_a pag_active">1</a></li>-->
+                        <!--<li><a class="pag_a">2</a></li>-->
+                        <!--<li><a class="pag_a">3</a></li>-->
+                        <!--<li><a class="pag_a">4</a></li>-->
+                        <!--<li><a class="pag_a">5</a></li>-->
+                        <!--<li><a class="pag_go">»</a></li>-->
+                    </ul>
+                </div>
+                <?php endif?>
+                <form id="adapt_form" action="<?php echo site_url('admin/main/update');?>" method="post"
+                      enctype="multipart/form-data">
+                    <h2>商品修改</h2>
+                    <p>
+                        <label for="adapt_id">商品id号：</label>
+                        <input type="text" name="adapt_id" class="adapt_text" id="adapt_id"/>
+                    </p>
+                    <p>
+                        <label for="adapt_name">商品名称：</label>
+                        <input type="text" name="adapt_name" class="adapt_text" id="adapt_name"/>
+                    </p>
+                    <p>
+                        <label for="adapt_brief">商品简述：</label>
+                        <input type="text" name="adapt_brief" class="adapt_text" id="adapt_brief"/>
+                    </p>
+                    <p>
+                        <label for="adapt_desc">商品详情：</label>
+                        <input type="text" name="adapt_desc" class="adapt_text" id="adapt_desc"/>
+                    </p>
+                    <p>
+                        <label for="adapt_class">商品类别：</label>
+                        <input type="text" name="adapt_class" class="adapt_text" id="adapt_class"/>
+                    </p>
+                    <p>
+                        <label for="adapt_price">商品价格：</label>
+                        <input type="text" name="adapt_price" class="adapt_text" id="adapt_price"/>
+                    </p>
+                    <p>
+                        <label for="adapt_select">是否上架：</label>
+                        <select name="adapt_select" class="select" id="adapt_select">
+                            <option id="put-on-sale">上架</option>
+                            <option id="pull-off-shelves">下架</option>
+                        </select>
+                    </p>
+                    <!--<p>-->
+                    <!--<label for="adapt_img">商品主图：</label>-->
+                    <!--<span class="adapt_file" title="请选择上传的图片"><input type="file" name="adapt_img"-->
+                    <!--id="adapt_img"/></span>-->
+                    <!--</p>-->
+                    <!--<p>-->
+                    <!--<label for="adapt_thumb">商品缩略图：</label>-->
+                    <!--<span class="adapt_file" title="请选择上传的图片"><input type="file" name="adapt_thumb"-->
+                    <!--id="adapt_thumb"/></span>-->
+                    <!--</p>-->
+                    <p>
+                        <label for="adapt_count">商品库存：</label>
+                        <input type="text" name="adapt_count" class="adapt_text" id="adapt_count"/>
+                    </p>
+                    <p>
+                        <input type="submit" name="form_adapt_add" class="form_adapt_btn" id="form_adapt_add"
+                               value="修改"/>
+                        <input type="button" name="form_adapt_close" class="form_adapt_btn" id="form_adapt_close"
+                               value="取消"/>
+                    </p>
+                </form>
+            </div>
+            <div class="oper_box" id="box2">
+                <form id="add_form" action="<?php echo site_url('admin/main/add')?>" method="post"
+                      enctype="multipart/form-data">
+                    <h2>商品添加</h2>
+                    <p>
+                        <label for="add_name">名称：</label>
+                        <input type="text" name="add_name" class="add_text" id="add_name"/>
+                        <span class="star">*</span>
+                        <span class="name_check check">请输入商品名称</span>
+                    </p>
+                    <p>
+                        <label for="add_brief">简述：</label>
+                        <input type="text" name="add_brief" class="add_text" id="add_brief"/>
+                        <span class="star">*</span>
+                        <span class="brief_check check">请简述商品信息</span>
+                    </p>
+                    <p>
+                        <label for="add_desc">详情：</label>
+                        <input type="text" name="add_desc" class="add_text" id="add_desc"/>
+                        <span class="star">*</span>
+                        <span class="desc_check check">请填写商品详情</span>
+                    </p>
+                    <p>
+                        <label for="add_brand">品牌：</label>
+                        <input type="text" name="add_brand" class="add_text" id="add_brand"/>
+                    </p>
+                    <p>
+                        <label for="add_class">类别：</label>
+                        <input type="text" name="add_class" class="add_text" id="add_class"/>
+                        <span class="star">*</span>
+                        <span class="cat_check check">请输入商品类别</span>
+                    </p>
+                    <p>
+                        <label for="add_price">价格：</label>
+                        <input type="text" name="add_price" class="add_text" id="add_price"/>
+                        <span class="star">*</span>
+                        <span class="price_check check">请输入商品价格</span>
+                    </p>
+                    <p>
+                        <label for="add_img">主图：</label>
+                        <span class="add_file" title="请选择上传的图片"><input type="file" name="add_img" id="add_img"/></span>
+                        <span class="star">*</span>
+                        <span class="img_check check">请上传商品主图</span>
+                    </p>
+                    <p>
+                        <label for="add_count">库存：</label>
+                        <input type="text" name="add_count" class="add_text" id="add_count"/>
+                        <span class="star">*</span>
+                        <span class="count_check check">请输入商品库存</span>
+                    </p>
+                    <p>
+                        <input type="submit" name="form_add" class="form_btn" id="form_add" value="添加"/>
+                    </p>
+                </form>
+            </div>
+            <div class="oper_box"></div>
+            <div class="oper_box"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

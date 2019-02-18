@@ -14,11 +14,11 @@
         <p>嗨~欢迎来到西二商城</p>
         <ul>
             <li>
-                <?php if (empty($_SESSION['username'])) : ?>
+                <?php if (empty($_SESSION['uname'])) : ?>
                 <a href="<?php echo site_url('login');?>" target="_self">您好,请登录</a>
                 <a href="<?php echo site_url('register');?>" target="_self">免费注册</a>
                 <?php else : ?>
-                <?php echo $_SESSION['username'];?><a href="<?php echo site_url();?>">西二商城</a>
+                <?php echo $_SESSION['uname'];?><a href="<?php echo site_url();?>">西二商城</a>
                 <a href="<?php echo site_url('login/login_out');?>">注销</a>
                 <?php endif;?>
             </li>

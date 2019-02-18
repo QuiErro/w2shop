@@ -85,10 +85,10 @@ class Login extends CI_Controller {
         if (!$userData || $userData[0]['password'] !== md5($passwd) || !$userData[0]['isadmin']) error('用户名或者密码不正确');
 
         $sessionData = array(
-            'uid' => $userData[0]['id'],
-            'username' => $username,
+            'aid' => $userData[0]['id'],
+            'aname' => $username,
             'isadmin' => $userData[0]['isadmin'],
-            'logintime' => time()
+            'alogintime' => time()
         );
 
         $this->session->set_userdata($sessionData);

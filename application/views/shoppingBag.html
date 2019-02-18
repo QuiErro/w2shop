@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>商城-购物车</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/shoppingBag.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/shoppingBag.css"/>
+</head>
+<body>
+<div id="nav">
+    <?php if (!empty($_SESSION['username'])) : ?>
+    <span class="nav_userId"> <?php echo $_SESSION['username'];?> 的购物车</span>
+    <?php endif;?>
+    <ul class="nav_op">
+        <li><a class="index_href" href="<?php echo site_url();?>">商城首页</a></li>
+        <li><span>我的购物车</span></li>
+        <li><span>个人中心</span></li>
+    </ul>
+</div>
+<div id="content">
+    <div class="header">
+        <img src="<?php echo base_url('public/');?>img/logo-round.png" class="header_logo"/>
+        <span>购物车</span>
+    </div>
+    <div class="cont_title">
+        <span>全部商品</span>
+    </div>
+    <div class="cont_op">
+        <div class="con_selet">
+            <input type="checkbox" class="con_selectAll" name="con_selectAll"/>
+            <label for="con_selectAll">全选</label>
+        </div>
+        <div>商品信息</div>
+        <div>单价</div>
+        <div>数量</div>
+        <div>金额</div>
+        <div>操作</div>
+    </div>
+    <div class="pro_box">
+        <?php if (!empty($contents)):?>
+        <!--购物车非空-->
+        <?php foreach ($contents as $good) : ?>
+        <div class="pro">
+            <ul class="item_content">
+                <li class="td td-chk">
+                    <div><input type="checkbox" class="checkBox"/></div>
+                </li>
+                <li class="td td-item">
+                    <div class="td-item-pic">
+                        <img src="<?php echo base_url('public/uploads/') . $good['img'];?>"/>
+                    </div>
+                    <div class="td-item-info"><?php echo $good['name'];?></div>
+                </li>
+                <li class="td td-price"><strong>￥<?php echo sprintf("%.2f",$good['price']);?></strong></li>
+                <li class="td td-amount">
+                    <div class="item-amout">
+                        <a class="amout_minus">-</a>
+                        <input type="text" value="1" class="text_amount" autocomplete="off"/>
+                        <a class="amout_puls">+</a>
+                    </div>
+                </li>
+                <li class="td td-sum"><strong>￥<?php echo $good['price'];?></strong></li>
+                <li class="td td-op"><a href="<?php echo site_url('cart') .'?rid='. $good['rowid'];?>">删除</a></li>
+            </ul>
+        </div>
+        <?php endforeach; ?>
+        <?php else : ?>
+        <!--购物车为空-->
+        <div class="pro">
+            <ul class="item_content">
+                购物车内暂无商品
+            </ul>
+        </div>
+        <?php endif;?>
+    </div>
+</div>
+</div>
+<div id="footer">
+    <div class="foot_select">
+        <input type="checkbox" class="foot_selectAll" name="foot_selectAll"/>
+        <label for="foot_selectAll">全选</label>
+    </div>
+    <div class="foot_op">
+        <a class="foot_remove">删除</a>
+    </div>
+    <div class="foot_total">
+        <div class="amout-sum">
+            <span class="txt">已选商品</span>
+            <strong id="selected_amout">0</strong>
+            <span class="txt">件</span>
+        </div>
+        <div class="price-sum">
+            <span class="txt">合计（不含运费）：</span>
+            <strong class="selected_price">0.00</strong>
+        </div>
+        <div class="btn-area">
+            <a class="btn-sumbit">结&nbsp;算</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

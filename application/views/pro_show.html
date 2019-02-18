@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情页</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/pro_show.jss"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/pro_show.css"/>
+</head>
+<body>
+<div id="header">
+    <div class="header_nav">
+        <p>嗨~欢迎来到西二商城</p>
+        <ul>
+            <li>
+                <a href="login.html" target="_blank">您好,请登录</a><a href="register.html" target="_blank">免费注册</a>
+            </li>
+            <li>
+                <a href="shoppingBag.html" target="_blank">我的购物车</a>
+            </li>
+            <li><a>我的订单</a></li>
+            <li><a>卖家中心</a></li>
+            <li><a>联系客服</a></li>
+            <li><a>网站导航</a></li>
+        </ul>
+    </div>
+</div>
+<div id="container">
+    <div class="pro_detail">
+        <div class="pro_img">
+            <div class="tb_booth"></div>
+        </div>
+        <div class="pro_meg">
+            <div class="pro_meg_hd">
+                <h1>
+                    <?php echo $info['goods_name']?>
+                </h1>
+            </div>
+            <div class="pro_meg_price">
+                <dl>
+                    <dt>促销价</dt>
+                    <dd>
+                        <div class="promo_price">
+                            <b>￥</b>
+                            <span class="tm-price"><?php echo sprintf("%.2f",$info['shop_price']);?></span>
+                            <b>优惠促销</b>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>本店优惠</dt>
+                    <dd>包邮</dd>
+                </dl>
+            </div>
+            <div class="pro_meg_deliver">
+                <dl>
+                    <dt>运费</dt>
+                    <dd>福建福州&nbsp;&nbsp;至&nbsp;&nbsp;福建福州&nbsp;&nbsp;&nbsp;快递:0.00</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
