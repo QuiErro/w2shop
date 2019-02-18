@@ -33,6 +33,7 @@ class Goods_model extends CI_Model {
 
     // 显示所有商品
     public function read() {
+        $this->db->join('category', 'category.cat_id = goods.cat_id', 'left');
         return $this->db->get($this->mytable)->result_array();
     }
 

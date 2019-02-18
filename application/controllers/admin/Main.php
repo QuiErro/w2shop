@@ -9,7 +9,6 @@ class Main extends Admin_Controller {
 
     // 展示后台首页
     public function index() {
-
 //        $search_id = $this->input->post('gid');
 //        if (!empty($search_id)) {
 //            $data['goods'] = $this->goods->info($search_id);
