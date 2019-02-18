@@ -3,7 +3,7 @@
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
-	font-family: "微软雅黑";
+	font-family:  "Microsoft YaHei";
 }
 #nav{
 	width: 100%;
@@ -13,24 +13,24 @@
 }
 #nav>.nav_userId{
 	display: inline-block;
+	margin-left: 150px;
 	height: 35px;
 	line-height: 35px;
 	color: red;
 	font-size: 14px;
-	margin-left: 150px;
 }
 #nav>.nav_op{
-	height: 35px;
 	float: right;
 	margin-right: 100px;
+	height: 35px;
 }
 #nav>.nav_op>li{
+	margin-right: 20px;
 	float: left;
 	height: 35px;
 	width: 100px;
 	line-height: 35px;
-	font-size: 14px;
-	margin-right: 20px;
+	font-size: 14px;	
 	text-align: center;
 	cursor: pointer;
 }
@@ -38,15 +38,15 @@
 	color: black;
 }
 #content{
-	width: 80%;
 	margin: 0 auto;
+	width: 80%;
 	height: auto;
 }
 #content>.header{
-	width: 100%;
-	height: 90px;
 	margin-top: 10px;
 	position: relative;
+	width: 100%;
+	height: 90px;
 }
 .header>img{
 	width: 80px;
@@ -57,12 +57,12 @@
 }
 .header>span{
 	display: inline-block;
-	font-size: 25px;
-	height: 35px;
-	font-weight: 700;
 	position: absolute;
 	top: 30%;
 	margin-left: 20px;
+	height: 35px;
+	font-size: 25px;
+	font-weight: 700;
 	cursor: pointer;
 }
 #content>.cont_title{
@@ -73,21 +73,21 @@
 }
 .cont_title>span{
 	display: inline-block;
-	font-weight: 700;
-    font-size: 17px;
     height: 100%;
     width: 100px;
     text-align: center;
-    line-height: 25px;
-    cursor: pointer;
+	line-height: 25px;
+	font-weight: 700;
+    font-size: 17px;
     color: #f40;
-    border-bottom: 2px solid #f40;
+	border-bottom: 2px solid #f40;
+	cursor: pointer;
 }
 #content>.cont_op{
-	width: 100%;
-	height: 40px;
 	display: flex;
 	justify-content: space-around;
+	width: 100%;
+	height: 40px;
 }
 .cont_op>div{
 	line-height: 40px;
@@ -99,19 +99,19 @@
 	width: 100%;
 }
 .pro_box>.pro{
-	background: #fcfcfc;
 	width: 100%;
 	height: 130px;
+	background: #fcfcfc;
 	border: 1px solid #CCCCCC;
 }
 .pro>.item_content{
+	justify-content: space-around;
 	padding: 15px;
 	display: flex;
-	justify-content: space-around;
 }
 .item_content>.td-item{
-	width: 180px;
 	position: relative;
+	width: 180px;
 }
 .td-item>div{
 	display: inline-block;
@@ -122,11 +122,11 @@
 }
 .td-item>.td-item-info{
 	position: absolute;
+	top: 0;
+	margin-left: 20px;
 	width: 80px;
 	line-height: 15px;
 	font-size: 12px;
-	top: 0;
-	margin-left: 20px;
 }
 .item_content>.td-sum{
 	color: #f40;
@@ -137,12 +137,12 @@
 .item-amout a{
 	display: inline-block;
     height: 23px;
-    width: 17px;
-    border: 1px solid #e5e5e5;
-    background: #f0f0f0;
-    text-align: center;
+	width: 17px;
+	text-align: center;
     line-height: 23px;
     color: #444;
+    border: 1px solid #e5e5e5;
+    background: #f0f0f0;
     cursor: pointer;
 }
 .item-amout a:hover{
@@ -150,21 +150,21 @@
     border-color: #f60;
 }
 .item-amout>.text_amount{
+	display: inline-block;
 	width: 40px;
 	height: 20px;
 	text-align: center;
-	display: inline-block;
 }
 .td-op a:hover{
 	cursor: pointer;
 	color: #f40;
 }
 #footer{
-	width: 80%;
-	height: 50px;
 	position: fixed;
 	bottom: 0;
 	left: 10%;
+	width: 80%;
+	height: 50px;
 	background: #E5E5E5;
 	z-index: 9999;
 }
@@ -172,10 +172,10 @@
 	display: inline-block;
 }
 #footer>.foot_select{
+	padding-left: 5px;
 	width: 50px;
     height: 50px;
     line-height: 50px;
-    padding-left: 5px;
     cursor: pointer;
     font-size: 14px;
 }
@@ -198,8 +198,8 @@
 	float: right;
 }
 .foot_total>.amout-sum{
-	cursor: pointer;
 	height: 50px;
+	cursor: pointer;
     color: #3c3c3c;
 }
 .foot_total .txt{
@@ -223,15 +223,16 @@
 }
 .btn-area>.btn-sumbit{
 	display: inline-block;
+	width: 119px;
+	height: 50px;
+	text-align: center;
+    line-height: 50px;
+    font-size: 20px;
 	background: #B0B0B0;
     color: #fff;
     border-left: 1px solid #e7e7e7;
-    width: 119px;
-    height: 50px;
     cursor: not-allowed;
-    text-align: center;
-    line-height: 50px;
-    font-size: 20px;
+   
 }
 .btn-area>.btn-sumbit.btn-allow{
 	background: #f22d00;
