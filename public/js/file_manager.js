@@ -35,13 +35,13 @@ $(function(){
 	});
 	
 	//删除商品
-	$(".remove_btn").click(function(){
-		$(".checkbox_btn:checked").each(function(){
-			$(this).parents("#pro_tab tr").remove();
-		});
-		//删除完后对当前商品按照id号重新排序
-		sort();
-	});	
+	// $(".remove_btn").click(function(){
+	// 	$(".checkbox_btn:checked").each(function(){
+	// 		$(this).parents("#pro_tab tr").remove();
+	// 	});
+	// 	//删除完后对当前商品按照id号重新排序
+	// 	sort();
+	// });
 	//商品上架区域
 		//选择图片
 	$("#add_img").change(function(){
@@ -190,7 +190,7 @@ $(function(){
 		//修改表单的修改按钮
 		$("#form_adapt_add").click(function(){
 			//adaptClick([id_td,name_td,brief_td,desc_td,cat_td,price_td,on_td,count_td]);
-			$(".adapt_text").val('');
+			// $(".adapt_text").val('');
 			$("#adapt_form").hide();
 		});
 	});

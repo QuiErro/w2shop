@@ -8,6 +8,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
     public function index() {
-        $this->load->view('index.html');
+        $this->load->model('Category_model', 'cate');
+        $cate = $this->cate->cates();
+        $data['cates'] = self::unlimitedForLayer($cate);
+        $this->load->view('index.html', $data);
+    }
+
+    Static private function unlimitedForLayer($cate, $name = 'child', $pid = 0) {
+        $arr = array();
+        foreach ($cate as $v) {
+            if ($v['pid'] == $pid) {
+                $v[$name] = self::unlimitedForLayer($cate, $name, $v['id']);
+                $arr[] = $v;
+            }
+        }
+        return $arr;
     }
 }

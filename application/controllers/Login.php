@@ -42,8 +42,8 @@ class Login extends CI_Controller {
 
         $sessionData = array(
             'uid' => $userData[0]['id'],
-            'username' => $username,
-            'logintime' => time(),
+            'uname' => $username,
+            'ulogintime' => time(),
             'isuser' => 1
         );
 

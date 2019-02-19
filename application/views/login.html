@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商城—欢迎登录</title>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('public/');?>js/file_login.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/file_login.css"/>
+</head>
+<body>
+<div id="log_header">
+    <div id="log_title">
+        <div><img src="<?php echo base_url('public/');?>img/logo-round.png"/></div>
+        <h1>西二商城</h1>
+        <span>欢迎登录</span>
+    </div>
+</div>
+<div id="content">
+    <form id="reg" action="<?php echo site_url('register/reg');?>" method="post" title="欢迎来到注册界面">
+        <div class="reg_title">用户注册</div>
+        <p>
+            <label for="reg_name" class="label_name" title="用户名"></label>
+            <input type="text" name="reg_name" class="text" id="reg_name" placeholder="用户名" title="请输入用户名"/>
+        </p>
+        <p>
+            <label for="reg_pass" class="label_pass" title="密码"></label>
+            <input type="password" name="reg_pass" class="text" id="reg_pass" placeholder="密码" title="请输入密码"/>
+        </p>
+        <div class="pass_tips">密码不得少于6位数</div>
+        <p>
+            <label for="reg_pass_check" class="label_pass_check" title="确认密码"></label>
+            <input type="password" name="reg_pass_check" class="text" id="reg_pass_check" placeholder="确认密码"
+                   title="请再次确认密码"/>
+        </p>
+        <div class="pass_tips_check">两次密码输入不一致</div>
+        <p>
+            <label for="reg_email" class="label_email" title="邮箱"></label>
+            <input type="text" name="reg_email" class="text" id="reg_email" placeholder="邮箱" title="请输入邮箱"/>
+        </p>
+        <div class="email_tips">请输入正确邮箱</div>
+        <input type="submit" value="注册" class="form_submit reg_submit"/>
+        <div class="footer">
+            <div>
+                <a class="go_log" title="即将前往登录页面">立即登录</a>
+            </div>
+        </div>
+    </form>
+    <form id="log" action="<?php echo site_url('login/login_in');?>" method="post" title="欢迎来到登录界面">
+        <div class="log_title">用户登录</div>
+        <p>
+            <label for="log_name" class="label_name" title="用户名"></label>
+            <input type="text" name="log_name" class="text" id="log_name" placeholder="用户名/邮箱" title="请输入用户名"/>
+        </p>
+        <p>
+            <label for="log_pass" class="label_pass" title="密码"></label>
+            <input type="password" name="log_pass" class="text" id="log_pass" placeholder="密码" title="请输入密码"/>
+        </p>
+        <input type="submit" value="登录" class="form_submit log_submit"/>
+        <div class="footer">
+            <div>
+                <a class="go_reg" title="即将前往注册页面">立即注册</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="footer">Copyright &copy; 2019-2020 西二XE.com 版权所有</div>
+</body>
+</html>

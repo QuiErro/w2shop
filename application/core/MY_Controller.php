@@ -12,9 +12,8 @@ class Admin_Controller extends CI_Controller {
         parent::__construct();
 
         // 无登录则无权限进后台
-        $username = $this->session->userdata['username'];
-        $isadmin = $this->session->userdata['isadmin'];
-        if (!$isadmin || !$username)
+        $username = $this->session->userdata['aname'];
+        if (empty($username))
             redirect(site_url('admin/login'));
     }
 }

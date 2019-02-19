@@ -130,7 +130,8 @@ html,body{
 	position: relative;
 	width: 90%;
 }
-#box1>.btn_set>button{
+
+#box1 > .btn_set > input {
 	margin-right: 15px;
 	width: 60px;
 	height: 30px;

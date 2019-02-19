@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>西二商城后台管理界面</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/file_manager.js"></script>
+    <link rel="stylesheet" href="css/file_manager.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/title.ico"/>
+</head>
+<body>
+<div id="header">
+    <p>您好，超级管理员<span class="name">admin</span>，欢迎来到西二商城后台管理界面</p>
+    <p class="close"><img src="img/close.jpg"/><a>退出系统</a></p>
+</div>
+<div id="container">
+    <div class="con_list">
+        <div class="list_line"><p>□&nbsp;菜单</p></div>
+        <ul class="list_operation">
+            <li class="oper"><img src="img/oper1.png"/>
+                <p><a href="index.html" target="_self">商城首页</a></p></li>
+            <li class="oper oper_current"><img src="img/oper1.png"/>
+                <p>商城管理</p></li>
+            <li class="oper"><img src="img/oper2.png"/>
+                <p>订单管理</p></li>
+            <li class="oper"><img src="img/oper3.png"/>
+                <p>库存管理</p></li>
+            <li class="oper"><img src="img/oper4.png"/>
+                <p>销量统计</p></li>
+        </ul>
+    </div>
+    <div class="con_show">
+        <div><img src="img/common.png"/></div>
+        <div class="console_show">
+            <div class="oper_box box_current" id="box1">
+                <div class="btn_set">
+                    <button class="add_btn">增加</button>
+                    <button class="remove_btn">删除</button>
+                    <button class="reload_btn">刷新</button>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="请输入商品的id号" class="search_text"/>
+                    <input type="button" value="搜索" class="search_btn"/>
+                </div>
+                <table id="pro_tab" border="1" width="800">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>id</th>
+                        <th>名称</th>
+                        <th>简单描述</th>
+                        <th>详情</th>
+                        <th>所属类别</th>
+                        <th>出售价格</th>
+                        <th>主图</th>
+                        <th>缩略图</th>
+                        <th>上架</th>
+                        <th>上架数量</th>
+                        <th>添加时间</th>
+                        <th>选择</th>
+                        <th>修改</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="id">11</td>
+                        <td class="name">苏东坡传</td>
+                        <td class="brief">待补充</td>
+                        <td class="desc">待补充</td>
+                        <td class="category">书籍</td>
+                        <td class="shop_price">26.80</td>
+                        <td class="goods_img"><img src="img/pro11.jpg"/></td>
+                        <td class="goods_thumb"><img src="img/pro11.jpg"/></td>
+                        <td class="onsale">已上架</td>
+                        <td class="onsale_count">20</td>
+                        <td class="add_time">2019-2-15</td>
+                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td>
+                            <button class="adapt_btn">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="id">12</td>
+                        <td class="name">三体</td>
+                        <td class="brief">待补充</td>
+                        <td class="desc">待补充</td>
+                        <td class="category">书籍</td>
+                        <td class="shop_price">55.80</td>
+                        <td class="goods_img"><img src="img/pro12.jpg"/></td>
+                        <td class="goods_thumb"><img src="img/pro12.jpg"/></td>
+                        <td class="onsale">已上架</td>
+                        <td class="onsale_count">20</td>
+                        <td class="add_time">2019-2-15</td>
+                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td>
+                            <button class="adapt_btn">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="id">13</td>
+                        <td class="name">尤克里里</td>
+                        <td class="brief">待补充</td>
+                        <td class="desc">待补充</td>
+                        <td class="category">乐器</td>
+                        <td class="shop_price">418.00</td>
+                        <td class="goods_img"><img src="img/pro13.jpg"/></td>
+                        <td class="goods_thumb"><img src="img/pro13.jpg"/></td>
+                        <td class="onsale">已上架</td>
+                        <td class="onsale_count">20</td>
+                        <td class="add_time">2019-2-15</td>
+                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td>
+                            <button class="adapt_btn">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="id">21</td>
+                        <td class="name">香飘飘奶茶</td>
+                        <td class="brief">待补充</td>
+                        <td class="desc">待补充</td>
+                        <td class="category">食品</td>
+                        <td class="shop_price">69.00</td>
+                        <td class="goods_img"><img src="img/pro21.jpg"/></td>
+                        <td class="goods_thumb"><img src="img/pro21.jpg"/></td>
+                        <td class="onsale">已上架</td>
+                        <td class="onsale_count">20</td>
+                        <td class="add_time">2019-2-15</td>
+                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td>
+                            <button class="adapt_btn">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="id">22</td>
+                        <td class="name">雀巢咖啡</td>
+                        <td class="brief">待补充</td>
+                        <td class="desc">待补充</td>
+                        <td class="category">食品</td>
+                        <td class="shop_price">39.90</td>
+                        <td class="goods_img"><img src="img/pro22.jpg"/></td>
+                        <td class="goods_thumb"><img src="img/pro22.jpg"/></td>
+                        <td class="onsale">已上架</td>
+                        <td class="onsale_count">20</td>
+                        <td class="add_time">2019-2-15</td>
+                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td>
+                            <button class="adapt_btn">修改</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <ul class="pagination">
+                        <li><a class="pag_back">«</a></li>
+                        <li><a class="pag_a pag_active">1</a></li>
+                        <li><a class="pag_a">2</a></li>
+                        <li><a class="pag_a">3</a></li>
+                        <li><a class="pag_a">4</a></li>
+                        <li><a class="pag_a">5</a></li>
+                        <li><a class="pag_go">»</a></li>
+                    </ul>
+                </div>
+                <form id="add_form">
+                    <h2>商品添加</h2>
+                    <p>
+                        <label for="add_id">商品id号：</label>
+                        <input type="text" name="add_id" class="add_text" id="add_id"/>
+                        <span class="star">*</span>
+                        <span class="id_check">请输入商品id号</span>
+                    </p>
+                    <p>
+                        <label for="add_name">商品名称：</label>
+                        <input type="text" name="add_name" class="add_text" id="add_name"/>
+                        <span class="star">*</span>
+                        <span class="name_check">请输入商品名称</span>
+                    </p>
+                    <p>
+                        <label for="add_brief">商品简述：</label>
+                        <input type="text" name="add_brief" class="add_text" id="add_brief"/>
+                    </p>
+                    <p>
+                        <label for="add_desc">商品详情：</label>
+                        <input type="text" name="add_desc" class="add_text" id="add_desc"/>
+                    </p>
+                    <p>
+                        <label for="add_class">商品类别：</label>
+                        <input type="text" name="add_class" class="add_text" id="add_class"/>
+                    </p>
+                    <p>
+                        <label for="add_price">商品价格：</label>
+                        <input type="text" name="add_price" class="add_text" id="add_price"/>
+                    </p>
+                    <p>
+                        <label for="add_img">商品主图：</label>
+                        <span class="add_file" title="请选择上传的图片"><input type="file" name="add_img" id="add_img"/></span>
+                    </p>
+                    <p>
+                        <label for="add_thumb">商品缩略图：</label>
+                        <span class="add_file" title="请选择上传的图片"><input type="file" name="add_thumb"
+                                                                       id="add_thumb"/></span>
+                    </p>
+                    <p>
+                        <label for="add_count">商品上架数量：</label>
+                        <input type="text" name="add_count" class="add_text" id="add_count"/>
+                    </p>
+                    <p>
+                        <input type="button" name="form_add" class="form_btn" id="form_add" value="添加"/>
+                        <input type="button" name="form_close" class="form_btn" id="form_close" value="取消"/>
+                    </p>
+                </form>
+                <form id="adapt_form">
+                    <h2>商品修改</h2>
+                    <p>
+                        <label for="adapt_id">商品id号：</label>
+                        <input type="text" name="adapt_id" class="adapt_text" id="adapt_id"/>
+                    </p>
+                    <p>
+                        <label for="adapt_name">商品名称：</label>
+                        <input type="text" name="adapt_name" class="adapt_text" id="adapt_name"/>
+                    </p>
+                    <p>
+                        <label for="adapt_brief">商品简述：</label>
+                        <input type="text" name="adapt_brief" class="adapt_text" id="adapt_brief"/>
+                    </p>
+                    <p>
+                        <label for="adapt_desc">商品详情：</label>
+                        <input type="text" name="adapt_desc" class="adapt_text" id="adapt_desc"/>
+                    </p>
+                    <p>
+                        <label for="adapt_class">商品类别：</label>
+                        <input type="text" name="adapt_class" class="adapt_text" id="adapt_class"/>
+                    </p>
+                    <p>
+                        <label for="adapt_price">商品价格：</label>
+                        <input type="text" name="adapt_price" class="adapt_text" id="adapt_price"/>
+                    </p>
+                    <!--
+                        <p>
+                            <label for="adapt_img">商品主图：</label>
+                            <span class="adapt_file" title="请选择上传的图片"><input type="file" name="adapt_img"  id="adapt_img" /></span>
+                        </p>
+                        <p>
+                            <label for="adapt_thumb">商品缩略图：</label>
+                            <span class="adapt_file" title="请选择上传的图片"><input type="file" name="adapt_thumb"  id="adapt_thumb"  /></span>
+                        </p>
+                    -->
+                    <p>
+                        <label for="adapt_count">商品上架数量：</label>
+                        <input type="text" name="adapt_count" class="adapt_text" id="adapt_count"/>
+                    </p>
+                    <p>
+                        <input type="button" name="form_adapt_add" class="form_adapt_btn" id="form_adapt_add"
+                               value="修改"/>
+                        <input type="button" name="form_adapt_close" class="form_adapt_btn" id="form_adapt_close"
+                               value="取消"/>
+                    </p>
+                </form>
+            </div>
+            <div class="oper_box"></div>
+            <div class="oper_box" id="box3">
+                <table id="pro_count" border="1" width="800">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>id</th>
+                        <th>名称</th>
+                        <th>类别</th>
+                        <th>库存</th>
+                        <th>修改</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="id">11</td>
+                        <td class="name">苏东坡传</td>
+                        <td>书籍</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="id">12</td>
+                        <td class="name">三体</td>
+                        <td>书籍</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="id">13</td>
+                        <td class="name">尤克里里</td>
+                        <td>乐器</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="id">21</td>
+                        <td class="name">香飘飘奶茶</td>
+                        <td>食品</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="id">22</td>
+                        <td class="name">雀巢咖啡</td>
+                        <td>食品</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="id">23</td>
+                        <td class="name">西湖龙井</td>
+                        <td>食品</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="id">31</td>
+                        <td class="name">Ipad平板电脑</td>
+                        <td>电子产品</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="id">32</td>
+                        <td class="name">OPPO R17</td>
+                        <td>电子产品</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="id">33</td>
+                        <td class="name">佳能单反</td>
+                        <td>电子产品</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="id">41</td>
+                        <td class="name">小米平板电视</td>
+                        <td>大型家电</td>
+                        <td class="ori_count">50</td>
+                        <td>
+                            <button class="count_adapt">修改</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <ul class="pagination">
+                        <li><a class="pag_back">«</a></li>
+                        <li><a class="pag_a pag_active">1</a></li>
+                        <li><a class="pag_a">2</a></li>
+                        <li><a class="pag_a">3</a></li>
+                        <li><a class="pag_a">4</a></li>
+                        <li><a class="pag_a">5</a></li>
+                        <li><a class="pag_go">»</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="oper_box"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

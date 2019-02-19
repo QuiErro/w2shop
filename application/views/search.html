@@ -6,7 +6,7 @@
     <script type="text/javascript" src="<?php echo base_url('public/');?>js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="<?php echo base_url('public/');?>js/search.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('public/');?>img/title.ico"/>
-    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/cart_add.css"/>
+    <link rel="stylesheet" href="<?php echo base_url('public/');?>css/search.css"/>
 </head>
 <body>
 <div id="header">
@@ -50,22 +50,33 @@
 </div>
 <div id="container">
     <div class="product">
-        <?php if (!empty($result)):?>
-        商品已成功加入购物车！
-        <div class="pro">
-            <img src="<?php echo base_url('public/uploads/') . $result['img'];?>" class="pro_img">
-            <p><em>¥<?php echo sprintf("%.2f",$result['price']);?></em></p>
-            <p><?php echo $result['name'];?></p>
-            <div class="add_btn">
-                <a href="<?php echo site_url('cart')?>">去购物车结算</a>
-                <br>
-                <a href="<?php echo site_url()?>">继续购物</a>
+        <div class="pro_show">
+            <?php if (!empty($result)):?>
+            <?php foreach ($result as $res):?>
+            <div class="pro">
+                <img src="<?php echo base_url('public/uploads/') . $res['goods_img'];?>" class="pro_img">
+                <div class="pro_text">
+                    <p><em>¥<?php echo sprintf("%.2f",$res['shop_price']);?></em></p>
+                    <p><?php echo $res['goods_name'];?></p>
+                    <p><?php echo $res['goods_brief'];?></p>
+                </div>
+                <div class="add_btn">
+                    <a href="<?php echo site_url('cart/add_cart') .'?gid='. $res['goods_id'];?>">加入购物车</a>
+                </div>
             </div>
+            <?php endforeach; ?>
+            <?php else: ?>
+            暂无此商品
+            <?php endif;?>
         </div>
-        <?php else: ?>
-        暂无此商品
-        <?php endif;?>
     </div>
 </div>
+<?php if (!empty($links)):?>
+<div class="footer">
+    <ul class="pagination">
+        <?php echo $links ?>
+    </ul>
+</div>
+<?php endif?>
 </body>
 </html>

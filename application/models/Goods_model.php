@@ -10,14 +10,6 @@ class Goods_model extends CI_Model {
         return $this->db->insert($this->mytable, $arr);
     }
 
-    // 上/下架商品
-    public function sale($gid) {
-        $res = $this->info($gid);
-        if (empty($res)) error('不存在该商品');
-        $status = $res['is_onsale'];
-        $this->change($gid, array('is_onsale' => !$status));
-    }
-
     // 修改商品信息
     public function change($id, $arr) {
         $this->db->where('goods_id', $id);
@@ -33,6 +25,7 @@ class Goods_model extends CI_Model {
 
     // 显示所有商品
     public function read() {
+        $this->db->join('category', 'category.cat_id = goods.cat_id', 'left');
         return $this->db->get($this->mytable)->result_array();
     }
 
@@ -42,5 +35,13 @@ class Goods_model extends CI_Model {
         $this->db->from('goods');
         $res = $this->db->get()->result_array();
         return $res;
+    }
+
+    // 根据id删除商品
+    public function del($arr) {
+        foreach ($arr as $a) {
+            $this->db->delete($this->mytable, array('goods_id' => $a));
+        }
+        success('admin/main', '删除成功');
     }
 }

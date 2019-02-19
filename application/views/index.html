@@ -14,11 +14,11 @@
         <p>嗨~欢迎来到西二商城</p>
         <ul>
             <li>
-                <?php if (empty($_SESSION['username'])) : ?>
+                <?php if (empty($_SESSION['uname'])) : ?>
                 <a href="<?php echo site_url('login');?>" target="_self">您好,请登录</a>
                 <a href="<?php echo site_url('register');?>" target="_self">免费注册</a>
                 <?php else : ?>
-                <?php echo $_SESSION['username'];?><a href="<?php echo site_url();?>">西二商城</a>
+                <?php echo $_SESSION['uname'];?><a href="<?php echo site_url();?>">西二商城</a>
                 <a href="<?php echo site_url('login/login_out');?>">注销</a>
                 <?php endif;?>
             </li>
@@ -59,116 +59,32 @@
     <div class="con_box">
         <img src="<?php echo base_url('public/');?>img/con_box.png"/>
         <ul>
-            <li><img src="<?php echo base_url('public/');?>img/box1.png"/><a>图书音像</a>
+            <?php foreach ($cates as $k1 => $cate):?>
+            <?php if ($k1 < 6) : ?>
+            <li>
+                <img src="<?php echo base_url('public/');?>img/box<?php echo ++$k1?>.png"/>
+                <a><?php echo $cate['name']?></a>
                 <div class="box_con">
+                    <?php foreach ($cate['child'] as $k2 => $cc): ?>
+                    <?php if ($k2 < 5) : ?>
                     <div class="hot_point">
-                        <div class="hot_line">畅销小说 ></div>
+                        <div class="hot_line"><a
+                                href="<?php echo site_url('category/channel') . '?cid=' . $cc['id']?>"><?php echo $cc['name']?>&nbsp;></a>
+                        </div>
                         <div class="hot_word">
-                            <a>外国文学</a><a>科幻小说</a>
+                            <?php foreach ($cc['child'] as $k3 => $c) : ?>
+                            <?php if ($k3 < 5) : ?>
+                            <a href="<?php echo site_url('category/channel') . '?cid=' . $c['id']?>">|&nbsp;<?php echo $c['name']?>&nbsp;|</a>
+                            <?php endif ?>
+                            <?php endforeach ?>
                         </div>
                     </div>
-                    <div class="hot_point">
-                        <div class="hot_line">文学文艺 ></div>
-                        <div class="hot_word">
-                            <a>散文随笔</a><a>传记</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">大牌乐器 ></div>
-                        <div class="hot_word">
-                            <a>民谣吉他</a><a>尤克里里</a>
-                        </div>
-                    </div>
+                    <?php endif ?>
+                    <?php endforeach ?>
                 </div>
             </li>
-            <li><img src="<?php echo base_url('public/');?>img/box2.png"/><a>零食</a>/<a>进口食品</a>
-                <div class="box_con">
-                    <div class="hot_point">
-                        <div class="hot_line">速溶饮品 ></div>
-                        <div class="hot_word">
-                            <a>咖啡</a><a>奶茶</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">零食 ></div>
-                        <div class="hot_word">
-                            <a>巧克力</a><a>饼干</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">茶叶 ></div>
-                        <div class="hot_word">
-                            <a>西湖龙井</a><a>铁观音</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li><img src="<?php echo base_url('public/');?>img/box3.png"/><a>手机</a>/<a>数码</a>/<a>电脑办公</a>
-                <div class="box_con">
-                    <div class="hot_point">
-                        <div class="hot_line">特色手机></div>
-                        <div class="hot_word">
-                            <a>双卡双待</a><a>千元指纹</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">电脑整机></div>
-                        <div class="hot_word">
-                            <a>平板电脑</a><a>游戏本</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">摄影摄像 ></div>
-                        <div class="hot_word">
-                            <a>单反</a><a>拍立得</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li><img src="<?php echo base_url('public/');?>img/box4.png"/><a>大家电</a>/<a>生活电器</a>
-                <div class="box_con">
-                    <div class="hot_point">
-                        <div class="hot_line">平板电视 ></div>
-                        <div class="hot_word">
-                            <a>国产</a><a>外资品牌</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">空调 ></div>
-                        <div class="hot_word">
-                            <a>热门之选</a><a>传记</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">冰箱 ></div>
-                        <div class="hot_word">
-                            <a>热门之选</a><a>智能</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li><img src="<?php echo base_url('public/');?>img/box5.png"/><a>运动鞋</a>/<a>箱包</a>
-                <div class="box_con">
-                    <div class="hot_point">
-                        <div class="hot_line">潮流名牌鞋></div>
-                        <div class="hot_word">
-                            <a>休闲鞋</a><a>板鞋</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">精品名牌包></div>
-                        <div class="hot_word">
-                            <a>手提包</a><a>斜挎包</a>
-                        </div>
-                    </div>
-                    <div class="hot_point">
-                        <div class="hot_line">功能箱包 ></div>
-                        <div class="hot_word">
-                            <a>流行箱</a><a>双肩包</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            <?php endif ?>
+            <?php endforeach ?>
         </ul>
     </div>
     <div class="con_show">
