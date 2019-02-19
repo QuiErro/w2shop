@@ -96,9 +96,9 @@ class Main extends Admin_Controller {
     }
 
     // 更新商品信息
-    // TODO: 接收不到表单数据？？
-    public function update() {
+    public function change() {
         $gid = $this->input->post('adapt_id');
+        $sale = $this->input->post('adapt_select');
         $good = array(
             'goods_name' => $this->input->post('adapt_name'),
             'goods_brief' => $this->input->post('adapt_brief'),
@@ -112,10 +112,9 @@ class Main extends Admin_Controller {
             'goods_img' => $info['file_name'],
             'goods_thumb' => $info['file_name'],
             */
-            'is_onsale' => ($this->input->post('adapt_slect') === 'put-on-sale'),
+            'is_onsale' => ($sale === '上架' ? 1 : 0),
             'goods_number' => $this->input->post('adapt_count'),
         );
-        p($good);
         if ($this->goods->change($gid, $good)) {
             success('admin/main', '修改商品信息成功');
         } else {
@@ -125,6 +124,7 @@ class Main extends Admin_Controller {
 
     // 删除商品
     public function del() {
-        $gid = $this->input->post('gid');
+        $gid = $this->input->post('select');
+        $this->goods->del($gid);
     }
 }

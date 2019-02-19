@@ -32,10 +32,10 @@
         <div><img src="<?php echo base_url('public/');?>img/common.png"/></div>
         <div class="console_show">
             <div class="oper_box box_current" id="box1">
-                <div class="btn_set">
-                    <button class="remove_btn">删除</button>
-                    <button class="reload_btn">刷新</button>
-                </div>
+                <!--<div class="btn_set">-->
+                    <!--<button class="remove_btn">删除</button>-->
+                    <!--<button class="reload_btn">刷新</button>-->
+                <!--</div>-->
                 <div class="search">
                     <input type="text" name="gid" placeholder="请输入商品的id号" class="search_text"/>
                     <input type="submit" value="搜索" class="search_btn"/>
@@ -59,6 +59,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <form name="del" action="<?php echo site_url('admin/main/del');?>" method="post">
                     <?php foreach ($goods as $good): ?>
                     <tr>
                         <td class="id"><?php echo $good['goods_id']?></td>
@@ -71,15 +72,21 @@
                         </td>
                         <td class="goods_thumb"><img
                                 src="<?php echo base_url('public/uploads/') . $good['goods_thumb']?>"/></td>
-                        <td class="onsale"><?php echo $good['goods_id'] ? '上架' : '下架'?></td>
+                        <td class="onsale"><?php echo $good['is_onsale'] ? '上架' : '下架'?></td>
                         <td class="onsale_count"><?php echo $good['goods_number']?></td>
                         <td class="add_time"><?php echo $good['add_time']?></td>
-                        <td><input type="checkbox" class="checkbox_btn"/></td>
+                        <td><input type="checkbox" class="checkbox_btn" name="select[]" value="<?php echo $good['goods_id']?>"/></td>
                         <td>
                             <button class="adapt_btn">修改</button>
                         </td>
                     </tr>
                     <?php endforeach ?>
+                        <div class="btn_set">
+                            <input type="submit" class="remove_btn" value="删除">
+                            <!--<button class="remove_btn">删除</button>-->
+                            <button class="reload_btn">刷新</button>
+                        </div>
+                    </form>
                     </tbody>
                 </table>
                 <?php if (!empty($links)):?>
@@ -96,7 +103,7 @@
                     </ul>
                 </div>
                 <?php endif?>
-                <form id="adapt_form" action="<?php echo site_url('admin/main/update');?>" method="post"
+                <form id="adapt_form" action="<?php echo site_url('admin/main/change');?>" method="post"
                       enctype="multipart/form-data">
                     <h2>商品修改</h2>
                     <p>
