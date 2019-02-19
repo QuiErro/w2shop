@@ -3,6 +3,7 @@
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
+	font-family:  "Microsoft YaHei";
 }
 /*头部导航*/
 #header>.header_nav{
