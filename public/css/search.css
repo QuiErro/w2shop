@@ -86,13 +86,13 @@ html,body{
 }
 .header_search{
 	position: absolute;
-	left: 50%;
+	left: 55%;
 	margin-left: -290px;
 	margin-top: 50px;
 }
 .header_search input:first-child{
 	padding-left: 10px;
-	width: 490px;
+	width: 450px;
 	height: 35px;
 	font-size: 14px;
 	line-height: 35px;
@@ -145,6 +145,74 @@ html,body{
 .shopping_bag>a{
 	color: red;
 }
+.category{
+	position: absolute;
+	top: 50px;
+    left: 240px;
+    width: 166px;
+    height: 45px;
+}
+.category>#channel{
+	float: left;
+    margin-right: 10px;
+    font-size: 20px;
+    line-height: 45px;
+    font-weight: 400;
+    color: #666;
+    cursor: default;
+}
+.category_mini{
+	float: left;
+	position: relative;
+    padding-top: 12px;
+    height: 21px;
+    color: #666;
+    font-size: 12px;
+    font-weight: 400;
+}
+.category_mini>#category_main{   
+    position: relative;
+    padding: 0 5px;
+    width: 63px;
+    height: 19px;
+    line-height: 19px;
+    color: #ccc;
+    border: 1px solid #ccc;
+    background: #fff;  
+}
+#category_main h2{
+	color: #666;
+    font-size: 12px;
+    font-weight: 400;
+}
+#category_main h2 a{
+	color: #666;
+}
+#category_hide{
+	display: none;
+    position: absolute;
+    margin-top: -1px;
+    padding: 13px;
+    width: 152px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    z-index: 9999;
+}
+#category_hide h3{
+	color: #666;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 400;
+}
+#category_hide h3>a{
+ 	padding: 5px;
+	color: #666;
+    font-size: 12px;
+}
+#category_hide h3>a:hover{
+	color: red;
+}
 /*快速搜索区域*/
 .nav_show{
 	display: none;
@@ -166,16 +234,17 @@ html,body{
 	width: 550px;
 	height: 35px;
 }
-.nav_show>div>input{
+.nav_show>div>form>input{
 	padding-left: 10px;
 	width: 490px;
 	background: #EFEFEF;
 }
-.nav_show>div>button{
+.nav_show>div>form>button{
+	position: absolute;
 	width: 50px;
 	right: 0;
 }
-.nav_show>div>input,.nav_show>div>button{
+.nav_show>div>form>input,.nav_show>div>form>button{
 	position: absolute;
 	top: 0;
 	height: 35px;

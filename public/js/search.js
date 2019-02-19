@@ -38,4 +38,9 @@ $(function(){
 		var keyword = getUrlParam("keyword");
     	$(".header_search>form>input").eq(0).val(keyword);
 	});
+	$(".category_mini").hover(function(){
+		$("#category_hide").show();
+	}, function(){
+		$("#category_hide").hide();
+	});
 });

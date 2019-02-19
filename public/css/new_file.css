@@ -164,16 +164,17 @@
 	width: 550px;
 	height: 35px;
 }
-.nav_show>div>input{
+.nav_show>div>form>input{
 	padding-left: 10px;
 	width: 490px;
 	background: #EFEFEF;
 }
-.nav_show>div>button{
+.nav_show>div>form>button{
+	position: absolute;
 	width: 50px;
 	right: 0;
 }
-.nav_show>div>input,.nav_show>div>button{
+.nav_show>div>form>input,.nav_show>div>form>button{
 	position: absolute;
 	top: 0;
 	height: 35px;
@@ -235,7 +236,6 @@
     width: 210px;
     height: 436px;
     background: #69686A;
-    color: white;
     font-size: 16px; 
 }
 .con_box>img{
@@ -253,8 +253,10 @@
 }
 .con_box>ul>li.box_current{
 	background: white;
-	color: #3bc7b0;
 	font-weight: 700;
+}
+.con_box>ul>li.box_current>a{
+	color: #3bc7b0;
 }
 .con_box>ul>li>img{
 	margin-right: 10px;
@@ -264,6 +266,7 @@
 .con_box>ul>li>a{
 	display: inline-block;
 	height: 20px;
+	color: white;
 }
 /*隐藏的扩展菜单*/
 .con_box>ul>li>.box_con{
@@ -271,7 +274,7 @@
     position: absolute;
     top: 38px;
     left: 210px;
-    padding: 20px;
+	padding: 20px;
     width: 600px;
     height: 360px;
     float: left;
@@ -349,19 +352,25 @@
 /*隐藏菜单的样式设计*/
 .box_con>.hot_point{
 	padding: 20px;
-    width: 100%;
-    height: 20px;
-    line-height: 20px;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
 	border-bottom: 1px dashed rgba(0,0,0,.1);
 }
 .hot_point>.hot_line{
 	display: inline-block;
 	margin-right: 20px;
 	font-weight: 700;
+	color: black;
+	width: 100px;
+}
+.hot_point>.hot_line:hover{
+	color: red;
 }
 .hot_point>.hot_word{
 	display: inline-block;
 	font-weight: 500;
+	margin-left: 20px;
 }
 .hot_word>a{
 	margin-right: 17px;
