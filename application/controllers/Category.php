@@ -13,24 +13,27 @@ class Category extends CI_Controller {
         $this->load->model('Category_model', 'cate');
     }
 
-    /**
-     * 将数据格式化成树形结构
-     * @author Xuefen.Tong
-     * @param array $items
-     * @return array
-     */
-    public function genTree9($items) {
+    // 分类展示
+    public function channel() {
+        $cid = $this->input->get('cid');
+        $data['result'] = $this->cate->channel($cid);
+        $data['cate'] = $this->cate->cate($cid);
+        $this->load->view('search.html', $data);
+    }
+
+    // 生成树形数组
+    private function genTree($items) {
         $tree = array(); //格式化好的树
         foreach ($items as $item)
             if (isset($items[$item['pid']]))
-                $items[$item['pid']]['son'][] = &$items[$item['id']];
+                $items[$item['pid']]['child'][] = &$items[$item['id']];
             else
                 $tree[] = &$items[$item['id']];
         return $tree;
     }
 
-    public function getList() {
-        $cate = $this->cate->cate();
+    public function test() {
+        $cate = $this->cate->cates();
         return $cate;
 //        print_r(Category::unlimitedForLevel($cate));
 //        print_r(Category::unlimitedForLayer($this->items));
@@ -111,11 +114,5 @@ class Category extends CI_Controller {
             }
         }
         return $result;
-    }
-
-    public function test() {
-        $arr = $this->getList();
-        $res = self::getLst();
-        p($res);
     }
 }

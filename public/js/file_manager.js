@@ -35,13 +35,13 @@ $(function(){
 	});
 	
 	//删除商品
-	$(".remove_btn").click(function(){
-		$(".checkbox_btn:checked").each(function(){
-			$(this).parents("#pro_tab tr").remove();
-		});
-		//删除完后对当前商品按照id号重新排序
-		sort();
-	});
+	// $(".remove_btn").click(function(){
+	// 	$(".checkbox_btn:checked").each(function(){
+	// 		$(this).parents("#pro_tab tr").remove();
+	// 	});
+	// 	//删除完后对当前商品按照id号重新排序
+	// 	sort();
+	// });
 	//商品上架区域
 		//选择图片
 	$("#add_img").change(function(){

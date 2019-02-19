@@ -107,7 +107,7 @@ class Main extends Admin_Controller {
             // 品牌暂缓
             'brand_id' => '',
             'market_price' => $this->input->post('adapt_price'),
-            /* 图片修改
+            /* TODO: 图片修改
             'shop_price' => $this->input->post('adaptadd_price'),
             'goods_img' => $info['file_name'],
             'goods_thumb' => $info['file_name'],
