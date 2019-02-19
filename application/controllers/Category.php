@@ -101,27 +101,21 @@ class Category extends CI_Controller {
         return $arr;
     }
 
-    public function displayList($id = 0) {
-        $str = "";
-        $result = $this->getList();
-        //这里去更新部分的展示数据，用其中的pid去对比
-        $arr = $this->update($id);
-        if ($id != 0) {
-            //当不需要编辑时候，在查询页面正常显示下拉列表
-            foreach ($result as $value) {
-                //这里特别注意，在model部分判断一把,选中的编辑pid和展示的下拉id相同时候选中
-                if ($value['id'] == $arr['pid']) {
-                    $str .= "<option value='{$value['id']}' selected>{$value['type']}</option>";
-                } else {
-                    $str .= "<option value='{$value['id']}'>{$value['type']}</option>";
-                }
+    public function getLst(&$result = array(), $pid = 0, $spac = 0) {
+        $spac = $spac + 4;
+        foreach ($this->getList() as $value) {
+            if ($value['pid'] == $pid) {
+                $value['type'] = str_repeat(' ', $spac) . "|--" . $value['type'];
+                $result[] = $value;
+                $this->getLst($result, $value['id'], $spac);
             }
-            return $str;
-        } else {
-            foreach ($result as $value) {
-                $str .= "<option value='{$value['id']}'>{$value['type']}</option>";
-            }
-            return $str;
         }
+        return $result;
+    }
+
+    public function test() {
+        $arr = $this->getList();
+        $res = self::getLst();
+        p($res);
     }
 }
