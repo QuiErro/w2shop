@@ -30,8 +30,9 @@
     </div>
     <div class="header_container">
         <div class="header_img"><img src="<?php echo base_url('public/');?>img/logo-round.png"/></div>
+        <?php if (!empty($cate)) : ?>
 		<div class="category">
-			<div id="channel">家用电器</div>
+            <div id="channel"><?php echo $cate[0]['cat_name'] ?></div>
 			<div class="category_mini">
 				<div id="category_main">
 					<h2>
@@ -39,44 +40,17 @@
 					</h2>
 				</div>
 				<div id="category_hide">
+                    <?php foreach ($cates as $k => $cate) : ?>
 					<div>
 						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
+                            <a href="<?php echo site_url('category/channel') . '?cid=' . $cate['cat_id']?>"><?php echo $cate['cat_name']?></a>
 						</h3>
 					</div>
-					<div>
-						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
-						</h3>
-					</div>
-					<div>
-						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
-						</h3>
-					</div>
-					<div>
-						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
-						</h3>
-					</div>
-					<div>
-						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
-						</h3>
-					</div>
-					<div>
-						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
-						</h3>
-					</div>
-					<div>
-						<h3>
-							<a>家居</a><a>家具</a><a>家装</a><a>厨具</a>
-						</h3>
-					</div>
+                    <?php endforeach ?>
 				</div>
 			</div>					
 		</div>
+        <?php endif ?>
         <div class="header_search">
             <form action="<?php echo site_url('shopping/search');?>" method="get">
                 <input type="text" name="keyword" placeholder="搜索  商品/品牌/店铺"/>
@@ -113,7 +87,7 @@
             </div>
             <?php endforeach; ?>
             <?php else: ?>
-            暂无此商品
+            暂无此类商品
             <?php endif;?>
         </div>
     </div>

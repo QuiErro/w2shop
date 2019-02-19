@@ -47,7 +47,7 @@ class Login extends CI_Controller {
         $config = array(
             'width' => 150,
             'height' => 40,
-            'codeLen' => 1,
+            'codeLen' => 4,
             'fontSize' => 20
         );
         $this->load->library('code', $config);
@@ -67,15 +67,10 @@ class Login extends CI_Controller {
      * 登陆
      */
     public function login_in() {
-//        $this->load->library('session');
 
         $username = $this->input->post('admin_name');
         $passwd = $this->input->post('admin_pass');
         $code = $this->input->post('admin_captcha');
-
-        if (!isset($_SESSION)) {
-            session_start();
-        }
 
         if (strtoupper($code) != $_SESSION['code']) error('验证码错误');
 
