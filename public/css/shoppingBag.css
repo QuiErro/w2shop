@@ -155,6 +155,11 @@
 	height: 20px;
 	text-align: center;
 }
+
+.td-op a {
+    color: black;
+}
+
 .td-op a:hover{
 	cursor: pointer;
 	color: #f40;

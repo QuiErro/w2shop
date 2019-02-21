@@ -275,7 +275,7 @@
     top: 38px;
     left: 210px;
 	padding: 20px;
-	width: 750px;
+	width: 800px;
     height: 360px;
     float: left;
     color: #666666;
@@ -359,9 +359,13 @@
 }
 .hot_point>.hot_line{
 	display: inline-block;
+}
+
+.hot_point > .hot_line > a {
+	display: inline-block;
 	margin-right: 20px;
 	font-weight: 700;
-	color: pink;
+	color: black;
 	width: 100px;
 }
 .hot_point>.hot_line:hover{

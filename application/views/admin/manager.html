@@ -32,10 +32,6 @@
         <div><img src="<?php echo base_url('public/');?>img/common.png"/></div>
         <div class="console_show">
             <div class="oper_box box_current" id="box1">
-                <!--<div class="btn_set">-->
-                    <!--<button class="remove_btn">删除</button>-->
-                    <!--<button class="reload_btn">刷新</button>-->
-                <!--</div>-->
                 <div class="search">
                     <input type="text" name="gid" placeholder="请输入商品的id号" class="search_text"/>
                     <input type="submit" value="搜索" class="search_btn"/>
@@ -77,14 +73,12 @@
                         <td class="add_time"><?php echo $good['add_time']?></td>
                         <td><input type="checkbox" class="checkbox_btn" name="select[]" value="<?php echo $good['goods_id']?>"/></td>
                         <td>
-                            <button class="adapt_btn">修改</button>
+                            <input type="button" class="adapt_btn" value="修改">
                         </td>
                     </tr>
                     <?php endforeach ?>
                         <div class="btn_set">
                             <input type="submit" class="remove_btn" value="删除">
-                            <!--<button class="remove_btn">删除</button>-->
-                            <!--<button class="reload_btn">刷新</button>-->
                             <input type="button" class="reload_btn" value="刷新">
                         </div>
                     </form>

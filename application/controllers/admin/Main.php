@@ -35,7 +35,7 @@ class Main extends Admin_Controller {
 
         $data['goods'] = $this->goods->read();
 
-        $this->load->view('admin/test.html', $data);
+        $this->load->view('admin/manager.html', $data);
     }
 
     // 增加新的商品
@@ -113,7 +113,7 @@ class Main extends Admin_Controller {
             'goods_thumb' => $info['file_name'],
             */
             'is_onsale' => ($sale === '上架' ? 1 : 0),
-            'goods_number' => $this->input->post('adapt_count'),
+            'goods_number' => $this->input->post('adapt_count')
         );
         if ($this->goods->change($gid, $good)) {
             success('admin/main', '修改商品信息成功');
@@ -125,6 +125,7 @@ class Main extends Admin_Controller {
     // 删除商品
     public function del() {
         $gid = $this->input->post('select');
+//        p($gid);
         $this->goods->del($gid);
     }
 }

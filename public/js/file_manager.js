@@ -189,8 +189,8 @@ $(function(){
 		
 		//修改表单的修改按钮
 		$("#form_adapt_add").click(function(){
-			//adaptClick([id_td,name_td,brief_td,desc_td,cat_td,price_td,on_td,count_td]);
-			// $(".adapt_text").val('');
+			adaptClick([id_td, name_td, brief_td, desc_td, cat_td, price_td, on_td, count_td]);
+			$(".adapt_text").val('');
 			$("#adapt_form").hide();
 		});
 	});
