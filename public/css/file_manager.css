@@ -187,7 +187,8 @@ html,body{
 	width: 40px;
 	height: 40px;
 }
-#pro_tab tr button{
+
+#pro_tab tr .adapt_btn {
 	width: 60px;
 	height: 30px;
 	border: 1px solid #CDCDCD;

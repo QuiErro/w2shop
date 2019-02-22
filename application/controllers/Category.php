@@ -16,8 +16,11 @@ class Category extends CI_Controller {
     // 分类展示
     public function channel() {
         $cid = $this->input->get('cid');
-        $data['result'] = $this->cate->channel($cid);
+        $cate = $this->cate->cates();
+        $id_arr = self::getChildsId($cate, $cid);
         $data['cate'] = $this->cate->cate($cid);
+        $data['result'] = $this->cate->channel($cid, $id_arr);
+        $data['cates'] = $this->cate->big_cates();  // 返回顶级分类信息
         $this->load->view('search.html', $data);
     }
 
@@ -34,11 +37,10 @@ class Category extends CI_Controller {
 
     public function test() {
         $cate = $this->cate->cates();
-        return $cate;
 //        print_r(Category::unlimitedForLevel($cate));
 //        print_r(Category::unlimitedForLayer($this->items));
 //        print_r(Category::getParents($cate, 0));
-//        print_r(Category::getChildsId($cate, 2));
+        print_r(Category::getChildsId($cate, 2));
 //        print_r(Category::getChilds($cate, 2));
     }
 

@@ -51,8 +51,10 @@
 </div>
 <div class="nav_show">
     <div>
-        <input type="text" placeholder="西二女装"/>
-        <button><img src="<?php echo base_url('public/');?>img/search.png"/></button>
+        <form action="<?php echo site_url('shopping/search');?>" method="get">
+            <input type="text" placeholder="西二女装"/>
+            <button type="submit"><img src="<?php echo base_url('public/');?>img/search.png"/></button>
+        </form>
     </div>
 </div>
 <div id="container">
@@ -63,18 +65,18 @@
             <?php if ($k1 < 6) : ?>
             <li>
                 <img src="<?php echo base_url('public/');?>img/box<?php echo ++$k1?>.png"/>
-                <a><?php echo $cate['name']?></a>
+                <a href="<?php echo site_url('category/channel') . '?cid=' . $cate['id']?>"><?php echo $cate['name']?></a>
                 <div class="box_con">
                     <?php foreach ($cate['child'] as $k2 => $cc): ?>
-                    <?php if ($k2 < 5) : ?>
+                    <?php if ($k2 < 6) : ?>
                     <div class="hot_point">
-                        <div class="hot_line"><a
-                                href="<?php echo site_url('category/channel') . '?cid=' . $cc['id']?>"><?php echo $cc['name']?>&nbsp;></a>
+                        <div class="hot_line">
+                            <a href="<?php echo site_url('category/channel') . '?cid=' . $cc['id']?>"><?php echo $cc['name']?>&nbsp;></a>
                         </div>
                         <div class="hot_word">
                             <?php foreach ($cc['child'] as $k3 => $c) : ?>
-                            <?php if ($k3 < 5) : ?>
-                            <a href="<?php echo site_url('category/channel') . '?cid=' . $c['id']?>">|&nbsp;<?php echo $c['name']?>&nbsp;|</a>
+                            <?php if ($k3 < 7) : ?>
+                            <a href="<?php echo site_url('category/channel') . '?cid=' . $c['id']?>"><?php echo $c['name']?></a>
                             <?php endif ?>
                             <?php endforeach ?>
                         </div>
@@ -321,7 +323,7 @@
 </div>
 <div class="end_show"></div>
 <div id="footer">
-    <img src="img/footer.png"/>
+    <img src="<?php echo base_url('public/')?>img/footer.png"/>
     <div class="footer_text"></div>
 </div>
 <div id="meg">
