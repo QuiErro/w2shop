@@ -53,7 +53,7 @@
         <?php endif ?>
         <div class="header_search">
             <form action="<?php echo site_url('shopping/search');?>" method="get">
-                <input type="text" name="keyword" placeholder="搜索  商品/品牌/店铺"/>
+                <input type="text" name="keyword" value="<?php echo $keyword?>" placeholder="搜索  商品/品牌/店铺"/>
                 <input type="submit" value="搜索">
             </form>
         </div>

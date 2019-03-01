@@ -9,8 +9,10 @@ class Home extends CI_Controller {
 
     public function index() {
         $this->load->model('Category_model', 'cate');
+        $this->load->library('cart');
         $cate = $this->cate->cates();
         $data['cates'] = self::unlimitedForLayer($cate);
+        $data['nums'] = $this->cart->total_items();
         $this->load->view('index.html', $data);
     }
 

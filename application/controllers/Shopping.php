@@ -7,16 +7,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Shopping extends CI_Controller {
 
+    public $keyword;
+
     public function search() {
         $this->load->model('Goods_model', 'goods');
-        $keword = $this->input->get('keyword');
-        $data['result'] = $this->goods->find($keword);
+        $keyword = $this->input->post('keyword');
+        $data['keyword'] = $keyword;
+        $data['result'] = $this->goods->find($keyword);
 
         $total = count($data['result']);
 
         // 分页配置项
-        $perPage = 1;
-        $config['base_url'] = site_url('shopping/search');
+        $perPage = 12;
+        $config['base_url'] = site_url('shopping/search?keyword=' . $keyword . 'page/');
         $config['total_rows'] = $total;
         $config['per_page'] = $perPage;
         $config['uri_segment'] = 4;

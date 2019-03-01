@@ -52,7 +52,7 @@
 <div class="nav_show">
     <div>
         <form action="<?php echo site_url('shopping/search');?>" method="get">
-            <input type="text" placeholder="西二女装"/>
+            <input type="text" name="keyword" placeholder="西二女装"/>
             <button type="submit"><img src="<?php echo base_url('public/');?>img/search.png"/></button>
         </form>
     </div>
@@ -108,7 +108,7 @@
             <img src="<?php echo base_url('public/');?>img/no_login.jpg"/>
         </div>
         <p>Hi~ 欢迎来到西二商城</p>
-        <?php if (empty($_SESSION['username'])) : ?>
+        <?php if (empty($_SESSION['uname'])) : ?>
         <p><a href="<?php echo site_url('login');?>" target="_self">登录</a><a href="<?php echo site_url('register');?>"
                                                                              target="_blank">注册</a></p>
         <?php endif;?>
@@ -118,7 +118,7 @@
     <div class="product">
         <div class="pro_line">
             <h3>图书音像</h3>
-            <div><a href="about:blank" target="_blank">MORE</a></div>
+            <div><a href="<?php echo site_url('shopping/search')?>" target="_blank">MORE</a></div>
         </div>
         <div class="pro_show">
             <div class="pro">
@@ -159,7 +159,7 @@
     <div class="product">
         <div class="pro_line">
             <h3>特色食品</h3>
-            <div><a href="about:blank" target="_blank">MORE</a></div>
+            <div><a href="<?php echo site_url('shopping/search')?>" target="_blank">MORE</a></div>
         </div>
         <div class="pro_show">
             <div class="pro">
@@ -200,7 +200,7 @@
     <div class="product">
         <div class="pro_line">
             <h3>电子产品</h3>
-            <div><a href="about:blank" target="_blank">MORE</a></div>
+            <div><a href="<?php echo site_url('shopping/search')?>" target="_blank">MORE</a></div>
         </div>
         <div class="pro_show">
             <div class="pro">
@@ -282,7 +282,7 @@
     <div class="product">
         <div class="pro_line">
             <h3>潮流服饰</h3>
-            <div><a href="about:blank" target="_blank">MORE</a></div>
+            <div><a href="<?php echo site_url('shopping/search')?>" target="_blank">MORE</a></div>
         </div>
         <div class="pro_show">
             <div class="pro">
@@ -331,7 +331,7 @@
         <div class="meg_shoppingbag">
             <img src="<?php echo base_url('public/');?>img/meg_showcar.png"/>
             <p>购物车</p>
-            <div><span>0</span></div>
+            <div><span><?php echo $nums ?: 0?></span></div>
         </div>
         <a href="#" class="meg_top">
             <img src="<?php echo base_url('public/');?>img/meg_top.png"/>
