@@ -3,25 +3,26 @@
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
-	font-family:  "Microsoft YaHei";
+	font-family: "微软雅黑";
 }
 html,body{
 	display: flex;
 	flex-direction: column;
 	width:100%;
+	/*height: 100%;*/
 }
 #header{
-	position: relative;
 	width: 100%;
 	height: 8%;
 	background: #000000;
+	position: relative;
 	color: white;
 	font-size: 13px;
 }
 #header>p{
+	height: 100%;
 	display: flex;
 	align-items: center;
-	height: 100%;
 }
 #header>p:first-child{
 	position: absolute;
@@ -32,15 +33,15 @@ html,body{
 	font-weight: 700;
 }
 #header>.close{
-	display: flex;
 	position: absolute;
 	right: 30px;
+	display: flex;
 	cursor: pointer;
 }
 .close>img{
-	margin-right: 10px;
 	width: 20px;
 	height: 20px;
+	margin-right: 10px;
 }
 .close>a{
 	color: white;
@@ -56,20 +57,20 @@ html,body{
 	background: #3C3C3C;
 }
 .con_list>.list_line{
-	padding-left: 20px;
 	width: 240px;
 	height: 60px;
 	background: #F36A5A;
 	color: white;
 	font-size: 25px;
 	line-height: 60px;
+	padding-left: 20px;
 	font-weight: bolder;
 }
 #container>.con_show{
-	display: flex;
-	flex-direction: column;
 	flex-grow: 1;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 .con_show>div:first-child{
 	width: 100%;
@@ -88,13 +89,13 @@ html,body{
 	width: 100%;
 }
 .list_operation>.oper{
-	display: flex;
-	padding-left: 20px;
 	width: 240px;
 	height: 60px;
 	line-height: 60px;
 	border-bottom: 1px solid #444445;
 	color: white;
+	padding-left: 20px;
+	display: flex;
 	cursor: pointer;
 }
 .oper:hover{
@@ -111,49 +112,49 @@ html,body{
 	display: inline-block;
 }
 .oper>img{
-	margin-top: 18px;
-	margin-right: 15px;
 	width: 25px;
 	height: 25px;
+	margin-top: 18px;
+	margin-right: 15px;
 }
 .oper_box{
-	display: none;
 	width: 100%;
 	height: 95%;
 	background: transparent;
+	display: none;
 }
 .box_current{
 	display: block;
 }
 #box1{
+	width: 90%;
 	margin: 30px auto 0;
 	position: relative;
-	width: 90%;
 }
 
-#box1 > .btn_set > input {
-	margin-right: 15px;
+#box1 > .btn_set > button {
 	width: 60px;
 	height: 30px;
 	border: 1px solid #CDCDCD;
 	outline: none;
 	background: white;
+	margin-right: 15px;
 	cursor: pointer;
 }
 #box1>.search{
+	width: 250px;
+	height: 30px;
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 250px;
-	height: 30px;
 }
 .search>input:first-child{
-	margin-right: 10px;
-	padding-left: 5px;
 	width: 160px;
 	height: 100%;
 	border: 1px solid #CDCDCD;
 	outline: none;
+	margin-right: 10px;
+	padding-left: 5px;
 }
 .search>input:last-child{
 	width: 60px;
@@ -203,18 +204,18 @@ html,body{
 	background: yellow;
 }
 #box2{
-	margin: 10px auto 0;
-	position: relative;
 	width: 95%;
 	height: 95%;
+	margin: 10px auto 0;
+	position: relative;
 }
 #add_form{
-	padding: 15px 0 0 15px;
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
 	border: 1px solid #EEEEEE;
 	background: white;
+	padding: 15px 0 0 15px;
 	box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 #add_form>p{
@@ -228,29 +229,29 @@ html,body{
 	color: #666666;
 }
 #add_form>p>.add_text{
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	background: #FFFFFF;
 	width: 350px;
 	height: 25px;
 	line-height: 25px;
 	text-indent: 5px;
 	color: #666666;
-	border-radius:4px;
-	border: 1px solid #CCCCCC;
-	background: #FFFFFF;
 }
 #add_form>p>.check{
-	padding-left: 80px;
 	display: none;
 	color: red;
 	font-size: 12px;
+	padding-left: 80px;
 }
 #add_form>p>.add_file{
 	display: inline-block;
-	padding: 5px;
-	width: 100px;
-	height: 100px;
 	border-radius:4px;
 	border: 1px dashed #CCCCCC;
 	background: #FFFFFF;
+	width: 100px;
+	height: 100px;
+	padding: 5px;
 }
 #add_form>p>.add_file:hover{
 	border: 1px dashed #409eff;
@@ -266,26 +267,27 @@ html,body{
 	right: 30px;
 }
 #add_form>p>.form_btn{
-	margin: 10px;
 	width: 80px;
 	height: 36px;
 	border: 1px solid #CDCDCD;
+	outline: none;
+	background: white;
+	cursor: pointer;
+	margin: 10px;
 	background: #F9F9F9;
 	font-size: 16px;
-	cursor: pointer;
-	outline: none;
 }
 #adapt_form{
+	width: 400px;
+	height: 750px;
 	display: none;
 	position: absolute;
 	top: -50px;
 	left: 200px;
-	padding: 15px 0 0 15px;
-	width: 400px;
-	height: 750px;
 	border-radius: 10px;
 	border: 1px solid #EEEEEE;
 	background: white;
+	padding: 15px 0 0 15px;
 	box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 #adapt_form>p{
@@ -296,23 +298,23 @@ html,body{
 	color: #666666;
 }
 #adapt_form>p>.adapt_text{
-	width: 250px;
-	height: 25px;
 	border-radius:4px;
 	border: 1px solid #CCCCCC;
 	background: #FFFFFF;
+	width: 250px;
+	height: 25px;
 	line-height: 25px;
 	text-indent: 5px;
 	color: #666666;
 }
 #adapt_form>p>.adapt_file{
 	display: inline-block;
-	padding: 5px;
-	width: 100px;
-	height: 100px;
 	border-radius:4px;
 	border: 1px dashed #CCCCCC;
 	background: #FFFFFF;
+	width: 100px;
+	height: 100px;
+	padding: 5px;
 }
 #adapt_form>p>.adapt_file:hover{
 	border: 1px dashed #409eff;
@@ -328,18 +330,19 @@ html,body{
 	right: 30px;
 }
 #adapt_form>p>.form_adapt_btn{
-	margin: 10px;
 	width: 60px;
 	height: 30px;
-	background: #F9F9F9;
 	border: 1px solid #CDCDCD;
 	outline: none;
+	background: white;
 	cursor: pointer;
+	margin: 10px;
+	background: #F9F9F9;
 }
 #box3{
+	width: 80%;
 	margin: 30px auto 0;
 	position: relative;
-	width: 80%;
 }
 #pro_count{
 	margin: 40px auto;
@@ -373,8 +376,8 @@ html,body{
 .footer{
 	margin-top: 20px;
 	height: 30px;
-	width: 100%;
 	text-align: center;
+	width: 100%;
 }
 .footer>ul.pagination {
     display: inline-block;
@@ -385,12 +388,12 @@ ul.pagination li{
 	display: inline;
 }
 ul.pagination li a {
+	color: black;
     float: left;
     padding: 4px 8px;
+	text-decoration: none;
     transition: background-color .3s;
 	border: 1px solid #ddd;
-	color: black;
-	text-decoration: none;
 }
 ul.pagination li a.pag_active {
     background-color: #c40000;

@@ -148,14 +148,14 @@ html,body{
 .category{
 	position: absolute;
 	top: 50px;
-	left: 200px;
-	width: 270px;
+    left: 200px;
+    width: 270px;
     height: 45px;
 }
 .category>#channel{
 	float: left;
     margin-right: 10px;
-	font-size: 16px;
+    font-size: 16px;
     line-height: 45px;
     font-weight: 400;
     color: #666;

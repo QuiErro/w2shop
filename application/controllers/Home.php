@@ -11,6 +11,7 @@ class Home extends CI_Controller {
         $this->load->model('Category_model', 'cate');
         $this->load->library('cart');
         $cate = $this->cate->cates();
+        $data['contents'] = $this->cart->contents();
         $data['cates'] = self::unlimitedForLayer($cate);
         $data['nums'] = $this->cart->total_items();
         $this->load->view('index.html', $data);
