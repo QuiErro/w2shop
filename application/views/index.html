@@ -347,8 +347,8 @@
             <label for="pro_ChkAll">全选</label>
             <a href="<?php echo site_url('cart');?>" target="_blank">全屏查看</a>
         </div>
-        <?php foreach ($contents as $good) : ?>
         <div class="meg_content">
+            <?php foreach ($contents as $good) : ?>
             <div class="pro_item">
                 <h4 class="item_title">西二商城自营服饰旗舰店<span
                         class="item_one">¥<?php echo sprintf("%.2f",$good['price']);?></span></h4>
@@ -368,8 +368,8 @@
                     <li class="item-sum"><strong>￥<?php echo $good['price'];?></strong></li>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
         <div class="toolbar_footer">
             <div class="pro_total">
                 <h3>

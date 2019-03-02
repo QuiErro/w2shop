@@ -91,7 +91,24 @@
                     </ul>
                 </div>
                 <?php endif?>
-                <form id="adapt_form" action="<?php echo site_url('admin/main/change');?>" method="post"
+                <script type="text/javascript">
+                    function adapt_form() {
+                        $.ajax({
+                            type: "POST",//方法类型
+                            dataType: "text",//预期服务器返回的数据类型
+                            url: "<?php echo site_url('admin/main/change');?>",//url
+                            data: $('#adapt_form').serialize(),
+                            success: function (result) {
+                                // console.log(result);//打印服务端返回的数据(调试用)
+                                alert(result);
+                            },
+                            error: function () {
+                                alert("异常！");
+                            }
+                        });
+                    }
+                </script>
+                <form id="adapt_form" onsubmit="return false" action="##" method="post"
                       enctype="multipart/form-data">
                     <h2>商品修改</h2>
                     <p>
@@ -112,7 +129,16 @@
                     </p>
                     <p>
                         <label for="adapt_class">商品类别：</label>
-                        <input type="text" name="adapt_class" class="adapt_text" id="adapt_class"/>
+                        <!--<input type="text" name="adapt_class" class="adapt_text" id="adapt_class"/>-->
+                        <select name="adapt_class" class="adapt_text" id="adapt_class">
+                            <?php
+                        foreach ($values as $key => $value) {
+                            echo '
+                            <option value="'.$value['id'].'">'.$value['name'].'</option>
+                            ';
+                            }
+                            ?>
+                        </select>
                     </p>
                     <p>
                         <label for="adapt_price">商品价格：</label>
@@ -140,7 +166,8 @@
                         <input type="text" name="adapt_count" class="adapt_text" id="adapt_count"/>
                     </p>
                     <p>
-                        <input type="submit" name="form_adapt_add" class="form_adapt_btn" id="form_adapt_add"
+                        <input type="button" onclick="adapt_form()" name="form_adapt_add" class="form_adapt_btn"
+                               id="form_adapt_add"
                                value="修改"/>
                         <input type="button" name="form_adapt_close" class="form_adapt_btn" id="form_adapt_close"
                                value="取消"/>
@@ -148,7 +175,7 @@
                 </form>
             </div>
             <div class="oper_box" id="box2">
-                <form id="add_form" action="<?php echo site_url('admin/main/add')?>" method="post"
+                <form id="add_form" action="<?php echo site_url('admin/main/add');?>" method="post"
                       enctype="multipart/form-data">
                     <h2>商品添加</h2>
                     <p>
@@ -175,9 +202,18 @@
                     </p>
                     <p>
                         <label for="add_class">类别：</label>
-                        <input type="text" name="add_class" class="add_text" id="add_class"/>
+                        <span class="cat_check check">请选择商品类别</span>
+
+                        <select name="add_class_opt" class="add_text" id="add_class">
+                            <?php
+                        foreach ($values as $key => $value) {
+                            echo '
+                            <option value="'.$value['id'].'">'.$value['name'].'</option>
+                            ';
+                            }
+                            ?>
+                        </select>
                         <span class="star">*</span>
-                        <span class="cat_check check">请输入商品类别</span>
                     </p>
                     <p>
                         <label for="add_price">价格：</label>

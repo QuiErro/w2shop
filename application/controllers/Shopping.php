@@ -9,6 +9,13 @@ class Shopping extends CI_Controller {
 
     public function search() {
         $this->load->model('Goods_model', 'goods');
+
+        /*
+        * TODO 搜索页添加顶级分类
+        $this->load->model('Category_model', 'cate');
+        $data['cates'] = $this->cate->big_cates();  // 返回顶级分类信息
+        */
+
         $keyword = $this->input->get('keyword');
         $data['keyword'] = $keyword;
         $result = $this->goods->find($keyword);

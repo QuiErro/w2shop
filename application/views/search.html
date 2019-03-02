@@ -14,11 +14,11 @@
         <p>嗨~欢迎来到西二商城</p>
         <ul>
             <li>
-                <?php if (empty($_SESSION['username'])) : ?>
+                <?php if (empty($_SESSION['uname'])) : ?>
                 <a href="<?php echo site_url('login');?>" target="_self">您好,请登录</a>
                 <a href="<?php echo site_url('register');?>" target="_self">免费注册</a>
                 <?php else : ?>
-                <?php echo $_SESSION['username'];?>
+                <?php echo $_SESSION['uname'];?>
                 <a href="<?php echo site_url('login/login_out');?>">注销</a>
                 <?php endif;?>
             </li>
@@ -50,13 +50,12 @@
 				</div>
 			</div>					
 		</div>
-        <?php else: ?>
-        分类呢
         <?php endif ?>
 
         <div class="header_search">
             <form action="<?php echo site_url('shopping/search');?>" method="get">
-                <input type="text" name="keyword" value="<?php echo $keyword?>" placeholder="搜索  商品/品牌/店铺"/>
+                <input type="text" name="keyword" value="<?php echo !empty($keyword) ? $keyword : ''?>"
+                       placeholder="搜索  商品/品牌/店铺"/>
                 <input type="submit" value="搜索">
             </form>
         </div>
