@@ -188,7 +188,7 @@ $(function(){
 		$("#adapt_count").val(count_td.text());	
 	});
 	//修改表单的修改按钮
-	$("#adapt_form").submit(function(){
+	$("#form_adapt_add").click(function(){
 		$.ajax ({
             type: "POST",//方法类型
             dataType: "text",//预期服务器返回的数据类型
@@ -200,7 +200,7 @@ $(function(){
 				$("#mb_con").show();
             },
             error : function() {
-                alert("异常！");
+               $("#mb_msg").text("修改失败");
             }
 		});
 		$("#adapt_form").hide();
