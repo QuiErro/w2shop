@@ -44,6 +44,7 @@ $(function(){
 	// });
 	//商品上架区域
 		//选择图片
+	/*
 	$("#add_img").change(function(){
 		var new_img = $("#add_img").val();
 		if(new_img){		
@@ -56,7 +57,7 @@ $(function(){
 			$(".add_file").eq(1).css("background-image","url("+new_thumb+")");
 		}
 	});
-	
+	*/
 	$("#form_add").click(function(){
 		var new_name = $("#add_name").val();
 		var new_brief = $("#add_brief").val();
@@ -200,7 +201,8 @@ $(function(){
 				$("#mb_con").show();
             },
             error : function() {
-                alert("异常！");
+                $("#mb_msg").text("商品信息修改失败");
+				$("#mb_con").show();
             }
 		});
 		$("#adapt_form").hide();
