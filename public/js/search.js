@@ -35,11 +35,11 @@ $(function(){
 		if(!$(".header_search>form>input").eq(0).val()){
 			ev.preventDefault();
 		}
-        var input_keyword = $(".header_search>form>input").eq(0).val();
-        /*
-        var keyword = getUrlParam("keyword");
-        $(".header_search>form>input").eq(0).val(keyword);
-        */
+		var input_keyword = $(".header_search>form>input").eq(0).val();
+		/*
+		var keyword = getUrlParam("keyword");
+    	$(".header_search>form>input").eq(0).val(keyword);
+    	*/
 	});
 	$(".category_mini").hover(function(){
 		$("#category_hide").show();

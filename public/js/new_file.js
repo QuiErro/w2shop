@@ -45,7 +45,7 @@ $(function(){
         });
         
     /*设置右侧固定栏的展示效果*/
-    $(".meg_nav").click(function () {
+    $(".meg_nav").click(function(){
     	$("#meg").stop().animate({
     		width:315
     	},500);
@@ -61,71 +61,70 @@ $(function(){
 			ev.preventDefault();
 		}
 	});
-
-    $(".nav_show form").submit(function (ev) {
-        ev = window.event || ev;
-        if (!$(".nav_show form input").eq(0).val()) {
-            ev.preventDefault();
-        }
-    });
-
-    //设置.meg_show表头的全选按钮
-    $("#pro_ChkAll").click(function () {
-        if ($(".pro_item").length == 0) {
-            $(this).prop("checked", false);
-        } else {
-            if ($(this).prop("checked")) {
-                $(".pro_ChkElem").prop("checked", true);
-            } else {
-                $(".pro_ChkElem").prop("checked", false);
-            }
-        }
-        cal_price();
-    });
-    //选择商品
-    $(".pro_ChkElem").click(function () {
-        if ($(".pro_ChkElem").length == $(".pro_ChkElem:checked").length) {
-            $("#pro_ChkAll").prop("checked", true);
-        } else {
-            $("#pro_ChkAll").prop("checked", false);
-        }
-        cal_price();
-    });
-    //数量按钮
-    $(".amout_minus").click(function () {
-        var now_count = parseInt($(this).parents(".item-amout").children(".text_amount").val());
-        if (now_count > 1) {
-            now_count -= 1;
-        }
-        $(this).parents(".item-amout").children(".text_amount").val(now_count);
-        var price = parseFloat($(this).parents(".pro_item").find(".item_one").text().substr(1));
-        $(this).parents(".item_content").find(".item-sum strong").text("¥" + ((price * now_count).toFixed(2)));
-        cal_price();
-    });
-    //数量按钮
-    $(".amout_puls").click(function () {
-        var now_count = parseInt($(this).parents(".item-amout").children(".text_amount").val());
-        now_count += 1;
-        $(this).parents(".item-amout").children(".text_amount").val(now_count);
-        var price = parseFloat($(this).parents(".pro_item").find(".item_one").text().substr(1));
-        $(this).parents(".item_content").find(".item-sum strong").text("¥" + ((price * now_count).toFixed(2)));
-        cal_price();
-    });
-
-    //计算已选中的商品的总金额
-    function cal_price() {
-        var total_amount = $(".pro_ChkElem:checked").length;
-        var total_price = 0;
-        for (var i = 0; i < total_amount; i++) {
-            total_price += parseFloat($(".pro_ChkElem:checked").eq(i).parents(".item_content").find(".item-sum strong").text().substr(1));
-        }
-        $(".total_price").text("¥" + total_price.toFixed(2));
-        $(".total_count").text(total_amount);
-        if (total_amount) {
-            $(".pro_cashier").addClass("btn-allow");
-        } else {
-            $(".pro_cashier").removeClass("btn-allow");
-        }
-    }
+	
+	$(".nav_show form").submit(function(ev){
+		ev = window.event || ev; 
+		if(!$(".nav_show form input").eq(0).val()){
+			ev.preventDefault();
+		}
+	});
+	
+	//设置.meg_show表头的全选按钮
+	$("#pro_ChkAll").click(function(){
+		if($(".pro_item").length == 0){
+			$(this).prop("checked",false);
+		}else{
+			if($(this).prop("checked")){
+				$(".pro_ChkElem").prop("checked",true);				
+			}else{
+				$(".pro_ChkElem").prop("checked",false);
+			}
+		}
+		cal_price();
+	});
+	//选择商品
+	$(".pro_ChkElem").click(function(){
+		if($(".pro_ChkElem").length == $(".pro_ChkElem:checked").length){
+			$("#pro_ChkAll").prop("checked",true);
+		}else{
+			$("#pro_ChkAll").prop("checked",false);
+		}
+		cal_price();
+	});
+	//数量按钮
+	$(".amout_minus").click(function(){
+		var now_count = parseInt($(this).parents(".item-amout").children(".text_amount").val());
+		if(now_count > 1){
+			now_count -= 1;
+		}
+		$(this).parents(".item-amout").children(".text_amount").val(now_count);
+		var price = parseFloat($(this).parents(".pro_item").find(".item_one").text().substr(1));
+		$(this).parents(".item_content").find(".item-sum strong").text("¥"+((price*now_count).toFixed(2)));
+		cal_price();
+	});
+	//数量按钮
+	$(".amout_puls").click(function(){
+		var now_count = parseInt($(this).parents(".item-amout").children(".text_amount").val());
+		now_count += 1;
+		$(this).parents(".item-amout").children(".text_amount").val(now_count);
+		var price = parseFloat($(this).parents(".pro_item").find(".item_one").text().substr(1));
+		$(this).parents(".item_content").find(".item-sum strong").text("¥"+((price*now_count).toFixed(2)));
+		cal_price();
+	});
+	//计算已选中的商品的总金额
+	function cal_price(){
+		var total_amount = $(".pro_ChkElem:checked").length;
+		var total_price = 0;
+		for(var i=0; i<total_amount; i++){
+			total_price += parseFloat($(".pro_ChkElem:checked").eq(i).parents(".item_content").find(".item-sum strong").text().substr(1));
+		}
+		$(".total_price").text("¥" + total_price.toFixed(2));
+		$(".total_count").text(total_amount);
+		if(total_amount){
+			$(".pro_cashier").addClass("btn-allow");
+		}else{
+			$(".pro_cashier").removeClass("btn-allow");
+		}
+	}
 	
 });

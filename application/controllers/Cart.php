@@ -34,7 +34,7 @@ class Cart extends CI_Controller {
             'price' => $info['shop_price'],
             'name' => $info['goods_name'],
             'img' => $info['goods_thumb'],
-            'desc' => $info['']
+            'desc' => $info['goods_desc']
         );
 
         $this->cart->insert($data['result']);

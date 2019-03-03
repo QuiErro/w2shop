@@ -360,8 +360,7 @@
 .hot_point>.hot_line{
 	display: inline-block;
 }
-
-.hot_point > .hot_line > a {
+.hot_point>.hot_line>a{
 	display: inline-block;
 	margin-right: 20px;
 	font-weight: 700;
@@ -554,27 +553,23 @@
 	width: 100%;
 	height: 30px;
 }
-
-.meg_show > .toolbar_header {
+.meg_show>.toolbar_header{
 	width: 100%;
 	height: 35px;
 }
-
-.toolbar_header > .pro_Chk {
+.toolbar_header>.pro_Chk{
 	float: left;
 	width: 25px;
 	height: 100%;
 }
-
-.pro_Chk > #pro_ChkAll {
+.pro_Chk>#pro_ChkAll{
 	display: block;
 	width: 12px;
 	height: 12px;
 	float: right;
 	margin-top: 12px;
 }
-
-.toolbar_header label {
+.toolbar_header label{
 	display: inline-block;
 	margin-left: 5px;
 	height: 100%;
@@ -583,8 +578,7 @@
 	color: gray;
 	cursor: pointer;
 }
-
-.toolbar_header a {
+.toolbar_header a{
 	display: inline-block;
 	float: right;
 	height: 100%;
@@ -593,25 +587,22 @@
 	color: gray;
 	margin-right: 10px;
 }
-
-.toolbar_footer {
-    position: fixed;
+.toolbar_footer{
+	position: fixed;
 	bottom: 20px;
 	padding: 0 16px;
 	width: 100%;
     background: #e6e6e6;
 	z-index: 99999;
 }
-
-.toolbar_footer > .pro_total {
+.toolbar_footer>.pro_total{
 	width: 248px;
     height: 30px;
     line-height: 30px;
     background: #e6e6e6;
     color: #333;
 }
-
-.pro_total > h3 {
+.pro_total>h3{
 	float: left;
     width: 100px;
     height: 30px;
@@ -619,21 +610,18 @@
     font-weight: 400;
     font-size: 12px;
 }
-
-.pro_total > span {
+.pro_total>span{
 	float: left;
     width: 148px;
     height: 30px;
     text-align: right;
 }
-
-.pro_total > span > .total_price {
+.pro_total>span>.total_price{
     font-weight: 600;
     color: #ff0036;
     font-size: 12px;
 }
-
-.pro_cashier {
+.pro_cashier{	
     width: 248px;
     height: 40px;
     line-height: 40px;
@@ -642,25 +630,21 @@
 	text-align: center;
     cursor: not-allowed;
 }
-
-.btn-allow {
+.btn-allow{
 	background: #f22d00;
 	cursor: pointer;
 }
-
-.meg_content {
+.meg_content{
 	width: 100%;
 	height: 600px;
 	overflow: auto;
 }
-
-.pro_item {
+.pro_item{
 	width: 100%;
 	height: 90px;
 	margin-bottom: 15px;
 }
-
-.pro_item > .item_title {
+.pro_item>.item_title{
 	padding-left: 12px;
 	width: 268px;
 	height: 30px;
@@ -670,8 +654,7 @@
 	font-weight: 400;
 	cursor: default;
 }
-
-.item_title > span {
+.item_title>span{
 	display: inline-block;
 	float: right;
 	margin-right: 10px;
@@ -679,59 +662,51 @@
 	line-height: 30px;
 	color: #666666;
 }
-
-.pro_item > .item_content {
+.pro_item>.item_content{
 	width: 100%;
 	height: 60px;
 	background: #f6f6f6;
 	position: relative;
 }
-
-.item_content > .pro_Chk {
+.item_content>.pro_Chk{
 	float: left;
 	width: 25px;
 	height: 100%;
 }
-
-.item_content div {
+.item_content div{
 	display: inline-block;
 	margin-right: 5px;
 }
-
-.pro_Chk > input {
+.pro_Chk>input{
 	display: block;
 	width: 12px;
 	height: 12px;
 	float: right;
 	margin-top: 24px;
 }
-
-.item-pic > img {
+.item-pic>img{
 	margin-top: 8px;
 	width: 45px;
     height: 45px;
 }
-
-.item-info {
+.item-info{
 	margin-top: 10px;
 	width: 50px;
 	height: 40px;
 	line-height: 20px;
     font-size: 12px;
     color: #999;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
 }
-
-.item-amout {
+.item-amout{
 	height: 20px;
 	line-height: 20px;
 	vertical-align: middle;
 	margin-top: -35px;
 }
-
-.item-amout > a {
+.item-amout>a{
 	display: inline-block;
     height: 18px;
     width: 12px;
@@ -742,29 +717,25 @@
     color: #444;
     cursor: pointer;
 }
-
-.item-amout > a:hover {
+.item-amout>a:hover{
 	color: #f50;
     border-color: #f60;
 }
-
-.item-amout > .text_amount {
+.item-amout>.text_amount{
 	width: 18px;
 	height: 15px;
 	text-align: center;
 	font-size: 10px;
 	display: inline-block;
 }
-
-.item-sum {
+.item-sum{
 	height: 20px;
 	line-height: 20px;
 	position: absolute;
 	top: 20px;
 	right: 5px;
 }
-
-.item-sum > strong {
+.item-sum>strong{
 	color: #f40;
 	font-size: 13px;
 }

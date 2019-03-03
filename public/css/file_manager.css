@@ -3,7 +3,7 @@
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
-    font-family: "Microsoft YaHei";
+	font-family:  "Microsoft YaHei";
 }
 html,body{
 	display: flex;
@@ -11,7 +11,7 @@ html,body{
 	width:100%;
 }
 #header{
-    position: relative;
+	position: relative;
 	width: 100%;
 	height: 8%;
 	background: #000000;
@@ -21,7 +21,7 @@ html,body{
 #header>p{
 	display: flex;
 	align-items: center;
-    height: 100%;
+	height: 100%;
 }
 #header>p:first-child{
 	position: absolute;
@@ -32,13 +32,13 @@ html,body{
 	font-weight: 700;
 }
 #header>.close{
-    display: flex;
+	display: flex;
 	position: absolute;
 	right: 30px;
 	cursor: pointer;
 }
 .close>img{
-    margin-right: 10px;
+	margin-right: 10px;
 	width: 20px;
 	height: 20px;
 }
@@ -56,7 +56,7 @@ html,body{
 	background: #3C3C3C;
 }
 .con_list>.list_line{
-    padding-left: 20px;
+	padding-left: 20px;
 	width: 240px;
 	height: 60px;
 	background: #F36A5A;
@@ -66,8 +66,8 @@ html,body{
 	font-weight: bolder;
 }
 #container>.con_show{
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	flex-grow: 1;
 	height: 100%;
 }
@@ -88,8 +88,8 @@ html,body{
 	width: 100%;
 }
 .list_operation>.oper{
-    display: flex;
-    padding-left: 20px;
+	display: flex;
+	padding-left: 20px;
 	width: 240px;
 	height: 60px;
 	line-height: 60px;
@@ -111,13 +111,13 @@ html,body{
 	display: inline-block;
 }
 .oper>img{
-    margin-top: 18px;
-    margin-right: 15px;
+	margin-top: 18px;
+	margin-right: 15px;
 	width: 25px;
 	height: 25px;
 }
 .oper_box{
-    display: none;
+	display: none;
 	width: 100%;
 	height: 95%;
 	background: transparent;
@@ -128,11 +128,11 @@ html,body{
 #box1{
 	margin: 30px auto 0;
 	position: relative;
-    width: 90%;
+	width: 90%;
 }
 
 #box1 > .btn_set > input {
-    margin-right: 15px;
+	margin-right: 15px;
 	width: 60px;
 	height: 30px;
 	border: 1px solid #CDCDCD;
@@ -144,12 +144,12 @@ html,body{
 	position: absolute;
 	top: 0;
 	right: 0;
-    width: 250px;
-    height: 30px;
+	width: 250px;
+	height: 30px;
 }
 .search>input:first-child{
-    margin-right: 10px;
-    padding-left: 5px;
+	margin-right: 10px;
+	padding-left: 5px;
 	width: 160px;
 	height: 100%;
 	border: 1px solid #CDCDCD;
@@ -205,11 +205,11 @@ html,body{
 #box2{
 	margin: 10px auto 0;
 	position: relative;
-    width: 95%;
-    height: 95%;
+	width: 95%;
+	height: 95%;
 }
 #add_form{
-    padding: 15px 0 0 15px;
+	padding: 15px 0 0 15px;
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
@@ -233,21 +233,21 @@ html,body{
 	line-height: 25px;
 	text-indent: 5px;
 	color: #666666;
-    border-radius: 4px;
-    border: 1px solid #CCCCCC;
-    background: #FFFFFF;
+	border-radius:4px;
+	border: 1px solid #CCCCCC;
+	background: #FFFFFF;
 }
 #add_form>p>.check{
-    padding-left: 80px;
+	padding-left: 80px;
 	display: none;
 	color: red;
 	font-size: 12px;
 }
 #add_form>p>.add_file{
 	display: inline-block;
-    padding: 5px;
-    width: 100px;
-    height: 100px;
+	padding: 5px;
+	width: 100px;
+	height: 100px;
 	border-radius:4px;
 	border: 1px dashed #CCCCCC;
 	background: #FFFFFF;
@@ -266,23 +266,23 @@ html,body{
 	right: 30px;
 }
 #add_form>p>.form_btn{
-    margin: 10px;
+	margin: 10px;
 	width: 80px;
 	height: 36px;
 	border: 1px solid #CDCDCD;
 	background: #F9F9F9;
 	font-size: 16px;
-    cursor: pointer;
-    outline: none;
+	cursor: pointer;
+	outline: none;
 }
 #adapt_form{
 	display: none;
 	position: absolute;
 	top: -50px;
 	left: 200px;
-    padding: 15px 0 0 15px;
-    width: 400px;
-    height: 750px;
+	padding: 15px 0 0 15px;
+	width: 400px;
+	height: 750px;
 	border-radius: 10px;
 	border: 1px solid #EEEEEE;
 	background: white;
@@ -296,8 +296,8 @@ html,body{
 	color: #666666;
 }
 #adapt_form>p>.adapt_text{
-    width: 250px;
-    height: 25px;
+	width: 250px;
+	height: 25px;
 	border-radius:4px;
 	border: 1px solid #CCCCCC;
 	background: #FFFFFF;
@@ -307,9 +307,9 @@ html,body{
 }
 #adapt_form>p>.adapt_file{
 	display: inline-block;
-    padding: 5px;
-    width: 100px;
-    height: 100px;
+	padding: 5px;
+	width: 100px;
+	height: 100px;
 	border-radius:4px;
 	border: 1px dashed #CCCCCC;
 	background: #FFFFFF;
@@ -328,10 +328,10 @@ html,body{
 	right: 30px;
 }
 #adapt_form>p>.form_adapt_btn{
-    margin: 10px;
+	margin: 10px;
 	width: 60px;
 	height: 30px;
-    background: #F9F9F9;
+	background: #F9F9F9;
 	border: 1px solid #CDCDCD;
 	outline: none;
 	cursor: pointer;
@@ -339,7 +339,7 @@ html,body{
 #box3{
 	margin: 30px auto 0;
 	position: relative;
-    width: 80%;
+	width: 80%;
 }
 #pro_count{
 	margin: 40px auto;
@@ -373,7 +373,7 @@ html,body{
 .footer{
 	margin-top: 20px;
 	height: 30px;
-    width: 100%;
+	width: 100%;
 	text-align: center;
 }
 .footer>ul.pagination {
@@ -389,8 +389,8 @@ ul.pagination li a {
     padding: 4px 8px;
     transition: background-color .3s;
 	border: 1px solid #ddd;
-    color: black;
-    text-decoration: none;
+	color: black;
+	text-decoration: none;
 }
 ul.pagination li a.pag_active {
     background-color: #c40000;
@@ -400,3 +400,62 @@ ul.pagination li a.pag_active {
 ul.pagination li a:hover:not(.pag_active){
 	background-color: #ddd;
 }
+#mb_con{
+	position: absolute;
+	width: 400px;
+	background: white;
+	border-radius: 15px; 
+	top: 40%;
+	left: 35%;
+	border: 1px solid gainsboro;
+	z-index: 99999;
+	display:none;
+}
+#mb_tit{
+	display: block;
+	font-size: 14px;
+	color: #444;
+	padding: 10px 15px;
+	border-bottom: 3px solid #009BFE;
+	font-weight: bold;
+}
+#mb_msg{
+	padding: 20px;
+	line-height: 20px;
+	border-bottom: 1px dashed #DDD;
+	font-size: 13px;
+}     
+#mb_ico{
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 9px;
+	border: 1px solid gray;
+	width: 18px;
+	height: 18px;
+	text-align: center;
+	line-height: 16px;
+	cursor: pointer;
+	border-radius: 12px;	
+}    
+#mb_btnbox{
+	margin: 15px 0 15px 0;
+	text-align: center;
+}  
+#mb_btn_ok,#mb_btn_no{
+	width: 85px;
+	height: 30px;
+	color: white;
+	border: none;
+}
+#mb_btn_ok{
+	background: #168bbb;
+}
+#mb_btn_no{
+	background: gray;
+	margin-left: 20px;
+}      
+#mb_ico:hover{
+	background: red;
+	color: white;
+}        

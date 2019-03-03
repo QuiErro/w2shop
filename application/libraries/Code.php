@@ -2,8 +2,6 @@
 
 /**
  * 验证码类
- * @package
- * @author      后盾马震宇 <houdunwangmzy@gmail.com>
  */
 
 class Code {

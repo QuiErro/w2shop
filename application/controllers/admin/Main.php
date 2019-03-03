@@ -118,20 +118,25 @@ class Main extends Admin_Controller {
             'goods_number' => $this->input->post('adapt_count')
         );
         if ($this->goods->change($gid, $good)) {
-            echo "修改商品信息成功";
-//            success('admin/main', '');
+                echo '修改商品信息成功';
         } else {
-            echo "修改失败，请重试";
-//            error('');
+                echo '修改失败，请重试';
         }
     }
 
     // 删除商品
     public function del() {
         $gid = $this->input->post('select');
-        if (empty($gid))
-            error('请先选择要删除的商品！');
-        $this->goods->del($gid);
+        if (empty($gid)) {
+                echo '请先选择要删除的商品！';
+        } else {
+            $res = $this->goods->del($gid);
+            if ($res === 0) {
+                echo '删除成功！';
+            } else {
+                echo "id 为 $res 的商品不存在";
+            };
+        }
     }
 
     public function getList(&$treeList = array(), $pid = 0, $count = 0) {
