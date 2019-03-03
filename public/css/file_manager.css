@@ -400,3 +400,62 @@ ul.pagination li a.pag_active {
 ul.pagination li a:hover:not(.pag_active){
 	background-color: #ddd;
 }
+#mb_con{
+	position: absolute;
+	width: 400px;
+	background: white;
+	border-radius: 15px; 
+	top: 40%;
+	left: 35%;
+	border: 1px solid gainsboro;
+	z-index: 99999;
+	display:none;
+}
+#mb_tit{
+	display: block;
+	font-size: 14px;
+	color: #444;
+	padding: 10px 15px;
+	border-bottom: 3px solid #009BFE;
+	font-weight: bold;
+}
+#mb_msg{
+	padding: 20px;
+	line-height: 20px;
+	border-bottom: 1px dashed #DDD;
+	font-size: 13px;
+}     
+#mb_ico{
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 9px;
+	border: 1px solid gray;
+	width: 18px;
+	height: 18px;
+	text-align: center;
+	line-height: 16px;
+	cursor: pointer;
+	border-radius: 12px;	
+}    
+#mb_btnbox{
+	margin: 15px 0 15px 0;
+	text-align: center;
+}  
+#mb_btn_ok,#mb_btn_no{
+	width: 85px;
+	height: 30px;
+	color: white;
+	border: none;
+}
+#mb_btn_ok{
+	background: #168bbb;
+}
+#mb_btn_no{
+	background: gray;
+	margin-left: 20px;
+}      
+#mb_ico:hover{
+	background: red;
+	color: white;
+}        

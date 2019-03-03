@@ -185,15 +185,28 @@ $(function(){
 		$("#adapt_price").val(price_td.text());
 		$("#adapt_desc").val(desc_td.text());
 		$("#adapt_brief").val(brief_td.text());
-		$("#adapt_count").val(count_td.text());
-		
-		//修改表单的修改按钮
-		$("#form_adapt_add").click(function(){
-			adaptClick([id_td, name_td, brief_td, desc_td, cat_td, price_td, on_td, count_td]);
-			$(".adapt_text").val('');
-			$("#adapt_form").hide();
-		});
+		$("#adapt_count").val(count_td.text());	
 	});
+	//修改表单的修改按钮
+	$("#adapt_form").submit(function(){
+		$.ajax ({
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "<?php echo site_url('admin/mainange');?>" ,//url
+            data: $('#adapt_form').serialize(),
+            success: function (result) {
+                // console.log(result);//打印服务端返回的数据(调试用)
+                $("#mb_msg").text(result);
+				$("#mb_con").show();
+            },
+            error : function() {
+                alert("异常！");
+            }
+		});
+		$("#adapt_form").hide();
+		//window.location.reload();
+	});
+
 	/*
 	function adaptClick(arr){	
 		var new_idNum = $("#adapt_id").val() || arr[0].text();
@@ -248,25 +261,14 @@ $(function(){
 			$("#pro_tab").append(arr[i]);
 		}
 	}
-	//页码
-	$(".pag_a").click(function(){
-		$(this).addClass('pag_active');
-		$(this).parent('li').siblings().children('a').removeClass('pag_active');
+	//弹窗口
+	$("#mb_ico").click(function(){
+		$("#mb_con").hide();
 	});
-	
-	$(".pag_back").click(function(){
-		if($(".pag_active").text() != '1'){
-			var new_index = parseInt($(".pag_active").text())-1;
-			$(".pagination li").eq(new_index).children('a').addClass('pag_active');
-			$(".pagination li").eq(new_index).siblings().children('a').removeClass('pag_active');
-		}
+	$("#mb_btn_ok").click(function(){
+		$("#mb_con").hide();
 	});
-	$(".pag_go").click(function(){
-		if($(".pag_active").text() != '5'){
-			var new_index = parseInt($(".pag_active").text())+1;
-			$(".pagination li").eq(new_index).children('a').addClass('pag_active');
-			$(".pagination li").eq(new_index).siblings().children('a').removeClass('pag_active');
-		}
+	$("#mb_btn_no").click(function(){
+		$("#mb_con").hide();
 	});
-	
 });
