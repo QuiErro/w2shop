@@ -37,6 +37,8 @@ class Category extends CI_Controller {
 
     public function test() {
         $cate = $this->cate->cates();
+        $res = self::getList();
+        p($res);
 //        print_r(Category::unlimitedForLevel($cate));
 //        print_r(Category::unlimitedForLayer($this->items));
 //        print_r(Category::getParents($cate, 0));
@@ -106,15 +108,15 @@ class Category extends CI_Controller {
         return $arr;
     }
 
-    public function getLst(&$result = array(), $pid = 0, $spac = 0) {
-        $spac = $spac + 4;
-        foreach ($this->getList() as $value) {
-            if ($value['pid'] == $pid) {
-                $value['type'] = str_repeat(' ', $spac) . "|--" . $value['type'];
-                $result[] = $value;
-                $this->getLst($result, $value['id'], $spac);
-            }
+    public function getList(&$treeList = array(), $pid = 0, $count = 0) {
+        $count += 4;
+        $result = $this->cate->pid_cate($pid);
+        foreach ($result as $row) {
+            $row['count'] = $count;
+            $row['name'] = str_repeat('&nbsp;', $count) . '|－' . $row['name'];
+            $treeList[] = $row;
+            self::getList($treeList, $row['id'], $count); //再次调用自身，这时的pid为上一条数据的id从而找到上一条数据的子分类;
         }
-        return $result;
+        return $treeList;
     }
 }

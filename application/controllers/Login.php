@@ -50,7 +50,6 @@ class Login extends CI_Controller {
         $this->session->set_userdata($sessionData);
 
         redirect(site_url(''));
-//        success('admin/main/index', '登陆成功');
     }
 
 

@@ -192,7 +192,7 @@ $(function(){
 		$.ajax ({
             type: "POST",//方法类型
             dataType: "text",//预期服务器返回的数据类型
-            url: "<?php echo site_url('admin/mainange');?>" ,//url
+            url: "../change" ,//url
             data: $('#adapt_form').serialize(),
             success: function (result) {
                 // console.log(result);//打印服务端返回的数据(调试用)
@@ -200,7 +200,7 @@ $(function(){
 				$("#mb_con").show();
             },
             error : function() {
-               $("#mb_msg").text("修改失败");
+                alert("异常！");
             }
 		});
 		$("#adapt_form").hide();

@@ -55,30 +55,52 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <form name="del" action="<?php echo site_url('admin/main/del');?>" method="post">
-                    <?php foreach ($goods as $good): ?>
-                    <tr>
-                        <td class="id"><?php echo $good['goods_id']?></td>
-                        <td class="name"><?php echo $good['goods_name']?></td>
-                        <td class="brief"><?php echo $good['goods_brief'] ?: '待补充' ?></td>
-                        <td class="desc"><?php echo $good['goods_desc'] ?: '待补充'?></td>
-                        <td class="category"><?php echo $good['cat_name']?></td>
-                        <td class="shop_price"><?php echo sprintf("%.2f",$good['shop_price']);?></td>
-                        <td class="goods_img"><img src="<?php echo base_url('public/uploads/') . $good['goods_img']?>"/>
-                        </td>
-                        <td class="goods_thumb"><img
-                                src="<?php echo base_url('public/uploads/') . $good['goods_thumb']?>"/></td>
-                        <td class="onsale"><?php echo $good['is_onsale'] ? '上架' : '下架'?></td>
-                        <td class="onsale_count"><?php echo $good['goods_number']?></td>
-                        <td class="add_time"><?php echo $good['add_time']?></td>
-                        <td><input type="checkbox" class="checkbox_btn" name="select[]" value="<?php echo $good['goods_id']?>"/></td>
-                        <td>
-                            <input type="button" class="adapt_btn" value="修改">
-                        </td>
-                    </tr>
-                    <?php endforeach ?>
+                    <script type="text/javascript">
+                        function del_form() {
+                            $.ajax({
+                                type: "POST",//方法类型
+                                dataType: "json",//预期服务器返回的数据类型
+                                url: "<?php echo site_url('admin/main/del');?>",//url
+                                data: $('#del_form').serialize(),
+                                success: function (result) {
+                                    console.log(result);//打印服务端返回的数据(调试用)
+                                    if (result.Code === 200) {
+                                        alert(result.Info)
+                                        location.reload()
+                                    };
+                                },
+                                error: function () {
+                                    alert("异常！");
+                                }
+                            });
+                        }
+                    </script>
+                    <form id="del_form" onsubmit="return false" action="##" method="post">
+                        <?php foreach ($goods as $good): ?>
+                        <tr>
+                            <td class="id"><?php echo $good['goods_id']?></td>
+                            <td class="name"><?php echo $good['goods_name']?></td>
+                            <td class="brief"><?php echo $good['goods_brief'] ?: '待补充' ?></td>
+                            <td class="desc"><?php echo $good['goods_desc'] ?: '待补充'?></td>
+                            <td class="category"><?php echo $good['cat_name']?></td>
+                            <td class="shop_price"><?php echo sprintf("%.2f",$good['shop_price']);?></td>
+                            <td class="goods_img"><img
+                                    src="<?php echo base_url('public/uploads/') . $good['goods_img']?>"/>
+                            </td>
+                            <td class="goods_thumb"><img
+                                    src="<?php echo base_url('public/uploads/') . $good['goods_thumb']?>"/></td>
+                            <td class="onsale"><?php echo $good['is_onsale'] ? '上架' : '下架'?></td>
+                            <td class="onsale_count"><?php echo $good['goods_number']?></td>
+                            <td class="add_time"><?php echo $good['add_time']?></td>
+                            <td><input type="checkbox" class="checkbox_btn" name="select[]"
+                                       value="<?php echo $good['goods_id']?>"/></td>
+                            <td>
+                                <input type="button" class="adapt_btn" value="修改">
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
                         <div class="btn_set">
-                            <input type="submit" class="remove_btn" value="删除">
+                            <input type="button" onclick="del_form()" class="remove_btn" value="删除">
                             <input type="button" class="reload_btn" value="刷新">
                         </div>
                     </form>
@@ -91,8 +113,28 @@
                     </ul>
                 </div>
                 <?php endif?>
-                <form id="adapt_form" action="<?php echo site_url('admin/main/change');?>" method="post"
-                      enctype="multipart/form-data">
+                <!--<script type="text/javascript">-->
+                    <!--function adapt_form() {-->
+                        <!--$.ajax({-->
+                            <!--type: "POST",//方法类型-->
+                            <!--dataType: "json",//预期服务器返回的数据类型-->
+                            <!--url: "<?php echo site_url('admin/main/change');?>",//url-->
+                            <!--data: $('#adapt_form').serialize(),-->
+                            <!--success: function (result) {-->
+                                <!--console.log(result);//打印服务端返回的数据(调试用)-->
+                                <!--if (result.Code === 200) {-->
+                                    <!--alert(result.Info)-->
+                                    <!--location.reload()-->
+                                <!--}-->
+                                <!--;-->
+                            <!--},-->
+                            <!--error: function () {-->
+                                <!--alert("异常！");-->
+                            <!--}-->
+                        <!--});-->
+                    <!--}-->
+                <!--</script>-->
+                <form id="adapt_form" onsubmit="return false" action="##" method="post">
                     <h2>商品修改</h2>
                     <p>
                         <label for="adapt_id">商品id号：</label>
@@ -112,7 +154,11 @@
                     </p>
                     <p>
                         <label for="adapt_class">商品类别：</label>
-                        <input type="text" name="adapt_class" class="adapt_text" id="adapt_class"/>
+                        <select name="adapt_class" class="adapt_text" id="adapt_class">
+                        <?php foreach ($values as $key => $value) {
+                            echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+                        }?>
+                        </select>
                     </p>
                     <p>
                         <label for="adapt_price">商品价格：</label>
@@ -140,7 +186,8 @@
                         <input type="text" name="adapt_count" class="adapt_text" id="adapt_count"/>
                     </p>
                     <p>
-                        <input type="submit" name="form_adapt_add" class="form_adapt_btn" id="form_adapt_add"
+                        <input type="button" name="form_adapt_add" class="form_adapt_btn"
+                               id="form_adapt_add"
                                value="修改"/>
                         <input type="button" name="form_adapt_close" class="form_adapt_btn" id="form_adapt_close"
                                value="取消"/>
@@ -148,7 +195,7 @@
                 </form>
             </div>
             <div class="oper_box" id="box2">
-                <form id="add_form" action="<?php echo site_url('admin/main/add')?>" method="post"
+                <form id="add_form" action="<?php echo site_url('admin/main/add');?>" method="post"
                       enctype="multipart/form-data">
                     <h2>商品添加</h2>
                     <p>
@@ -175,9 +222,18 @@
                     </p>
                     <p>
                         <label for="add_class">类别：</label>
-                        <input type="text" name="add_class" class="add_text" id="add_class"/>
+                        <span class="cat_check check">请选择商品类别</span>
+
+                        <select name="add_class_opt" class="add_text" id="add_class">
+                            <?php
+                        foreach ($values as $key => $value) {
+                            echo '
+                            <option value="'.$value['id'].'">'.$value['name'].'</option>
+                            ';
+                            }
+                            ?>
+                        </select>
                         <span class="star">*</span>
-                        <span class="cat_check check">请输入商品类别</span>
                     </p>
                     <p>
                         <label for="add_price">价格：</label>
@@ -208,12 +264,12 @@
     </div>
 </div>
 <div id="mb_con">
-	<span id="mb_tit">温馨提示</span><a id="mb_ico">x</a>
-	<div id="mb_msg"></div>
-	<div id="mb_btnbox">
-		<input id="mb_btn_ok" type="button" value="确定" />
-		<input id="mb_btn_no" type="button" value="取消" />
-	</div>
+    <span id="mb_tit">温馨提示</span><a id="mb_ico">x</a>
+    <div id="mb_msg"></div>
+    <div id="mb_btnbox">
+        <input id="mb_btn_ok" type="button" value="确定"/>
+        <input id="mb_btn_no" type="button" value="取消"/>
+    </div>
 </div>
 </body>
 </html>

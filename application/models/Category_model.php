@@ -35,4 +35,13 @@ class Category_model extends CI_Model {
         $res = $this->db->get()->result_array();
         return $res;
     }
+
+    // 根据 pid 返回所有分类
+    public function pid_cate($pid) {
+        $this->db->select('cat_id id, parent_id pid, cat_name name');
+        $this->db->where('parent_id', $pid);
+        $this->db->from('category');
+        $res = $this->db->get()->result_array();
+        return $res;
+    }
 }

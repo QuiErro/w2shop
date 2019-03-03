@@ -20,7 +20,7 @@ class Goods_model extends CI_Model {
     // 由 gid 查询商品信息
     public function info($gid) {
         $res = $this->db->get_where($this->mytable, array('goods_id' => $gid))->result_array();
-        return $res[0];
+        return is_array($res) ? $res[0] : 0;
     }
 
     // 显示所有商品
@@ -37,11 +37,18 @@ class Goods_model extends CI_Model {
         return $res;
     }
 
-    // 根据id删除商品
+    /*
+     * 根据 gid 删除商品
+     * 删除成功返回 0，不成功的返回 gid
+     */
     public function del($arr) {
         foreach ($arr as $a) {
-            $this->db->delete($this->mytable, array('goods_id' => $a));
+            if (self::info($a) !== 0 ) {  // 如果存在此商品才删
+                $this->db->delete($this->mytable, array('goods_id' => $a));
+            } else {
+                return $a;
+            }
         }
-        success('admin/main', '删除成功');
+        return 0;
     }
 }

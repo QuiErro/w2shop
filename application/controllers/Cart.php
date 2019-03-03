@@ -23,6 +23,7 @@ class Cart extends CI_Controller {
     }
 
     // 添加购物车
+    // TODO: 有些商品加不进去，比如 gid=7
     public function add_cart() {
         $gid = $this->input->get('gid');
         $info = $this->goods->info($gid);
@@ -32,7 +33,8 @@ class Cart extends CI_Controller {
             'qty' => 1,
             'price' => $info['shop_price'],
             'name' => $info['goods_name'],
-            'img' => $info['goods_thumb']
+            'img' => $info['goods_thumb'],
+            'desc' => $info['goods_desc']
         );
 
         $this->cart->insert($data['result']);

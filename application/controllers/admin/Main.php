@@ -5,6 +5,7 @@ class Main extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Goods_model', 'goods');
+        $this->load->model('Category_model', 'cate');
     }
 
     // 展示后台首页
@@ -34,6 +35,7 @@ class Main extends Admin_Controller {
         $this->db->limit($perPage, $offset);
 
         $data['goods'] = $this->goods->read();
+        $data['values'] = self::getList();
 
         $this->load->view('admin/manager.html', $data);
     }
@@ -78,7 +80,7 @@ class Main extends Admin_Controller {
             'goods_name' => $this->input->post('add_name'),
             'goods_brief' => $this->input->post('add_brief'),
             'goods_desc' => $this->input->post('add_desc'),
-            'cat_id' => $this->input->post('add_class'),
+            'cat_id' => $this->input->post('add_class_opt'),
             // 品牌暂缓
             'brand_id' => '',
             'market_price' => $this->input->post('add_price'),
@@ -116,16 +118,36 @@ class Main extends Admin_Controller {
             'goods_number' => $this->input->post('adapt_count')
         );
         if ($this->goods->change($gid, $good)) {
-            success('admin/main', '修改商品信息成功');
+                echo '修改商品信息成功';
         } else {
-            error('修改失败');
+                echo '修改失败，请重试';
         }
     }
 
     // 删除商品
     public function del() {
         $gid = $this->input->post('select');
-//        p($gid);
-        $this->goods->del($gid);
+        if (empty($gid)) {
+                echo '请先选择要删除的商品！';
+        } else {
+            $res = $this->goods->del($gid);
+            if ($res === 0) {
+                echo '删除成功！';
+            } else {
+                echo "id 为 $res 的商品不存在";
+            };
+        }
+    }
+
+    public function getList(&$treeList = array(), $pid = 0, $count = 0) {
+        $count += 4;
+        $result = $this->cate->pid_cate($pid);
+        foreach ($result as $row) {
+            $row['count'] = $count;
+            $row['name'] = str_repeat('&nbsp;', $count) . '    ' . $row['name'];
+            $treeList[] = $row;
+            self::getList($treeList, $row['id'], $count);
+        }
+        return $treeList;
     }
 }
